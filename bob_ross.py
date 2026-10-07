@@ -705,6 +705,8 @@ def main():
                     help="paint anything: a chat model plans --prompt as coloured shapes, then Jev paints them")
     ap.add_argument("--planner-model", default="google/gemini-3.1-flash-lite", help="freeform: the OpenRouter model that plans the shapes")
     ap.add_argument("--replan", action="store_true", help="freeform: plan the prompt again instead of using the cached plan")
+    ap.add_argument("--planner-effort", default="low", choices=("minimal", "low", "medium", "high"),
+                    help="freeform: how hard the planner thinks; more effort, better drawings, slower and dearer")
     ap.add_argument("--planner-fallback", default="z-ai/glm-5.3-flash",
                     help="freeform: model to plan with if --planner-model is slow or fails ('' for none)")
     ap.add_argument("--run-dir", help="write the run here instead of runs/bobross-<method>-<size>-<hash> (used by the Studio)")
@@ -726,7 +728,7 @@ def main():
     if args.freeform:
         from scene_planner import PlanError, plan, to_layers
         try:
-            scene = plan(args.prompt, args.planner_model, fresh=args.replan, fallback=args.planner_fallback)
+            scene = plan(args.prompt, args.planner_model, fresh=args.replan, fallback=args.planner_fallback, effort=args.planner_effort)
         except PlanError as e:
             raise SystemExit(f"planning failed: {e}")
         paints = scene["paints"]

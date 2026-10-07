@@ -178,21 +178,23 @@ def validate(raw):
     return {"title": title, "paints": paints, "background": background, "shapes": shapes}
 
 
-def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=40, fallback=FALLBACK_MODEL):
+def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=40, fallback=FALLBACK_MODEL, effort="low"):
     """Plan with `model`; if it is slow, failing or returns nothing usable, plan once with `fallback`."""
+    if effort in ("medium", "high"):
+        timeout = max(timeout, 90)  # thinking harder takes longer before the first word
     try:
-        return _plan(prompt, model, fresh, timeout)
+        return _plan(prompt, model, fresh, timeout, effort)
     except PlanError as e:
         if not fallback or fallback == model:
             raise
         print(f"planner: {model} failed ({str(e)[:160]}); falling back to {fallback}", flush=True)
-        return _plan(prompt, fallback, fresh, timeout)
+        return _plan(prompt, fallback, fresh, timeout, "low")
 
 
-def _plan(prompt, model, fresh, timeout):
+def _plan(prompt, model, fresh, timeout, effort="low"):
     """The scene for a prompt: from the cache if this prompt and model were planned before."""
     prompt = " ".join(prompt.split())
-    digest = hashlib.sha256(json.dumps([prompt, model, SYSTEM]).encode()).hexdigest()[:12]  # new instructions, new plan
+    digest = hashlib.sha256(json.dumps([prompt, model, SYSTEM] + ([effort] if effort != "low" else [])).encode()).hexdigest()[:12]  # new instructions, new plan
     path = os.path.join(ROOT, "runs", "plans", f"{digest}.json")
     if os.path.exists(path) and not fresh:
         with open(path) as f:
@@ -211,7 +213,7 @@ def _plan(prompt, model, fresh, timeout):
         "max_tokens": 12000,  # room for a model that insists on thinking before it writes the plan
         "usage": {"include": True},
         # a layout needs little thought; some models refuse to switch thinking off, so ask for the least
-        "reasoning": {"effort": "low", "exclude": True},
+        "reasoning": {"effort": effort, "exclude": True},
     }
     raw, cost, errors = None, 0.0, []
     for attempt in range(2):

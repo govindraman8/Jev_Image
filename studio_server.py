@@ -42,8 +42,10 @@ ABOUT = ("Describe anything. A chat model sketches it as flat coloured shapes, t
          "of every block of the canvas from that sketch, big strokes first.")
 
 MODES = [
-    {"id": "anything", "label": "Anything",
-     "hint": "A chat model plans the picture as shapes (a fraction of a cent), then Jev paints them."},
+    {"id": "anything", "label": "Anything \u00b7 fast",
+     "hint": "Gemini 3.1 Flash-Lite sketches it as shapes in seconds for a fraction of a cent, then Jev paints it. Simple, icon-like."},
+    {"id": "detailed", "label": "Anything \u00b7 detailed",
+     "hint": "Gemini 3.5 Flash thinks harder about the sketch: better faces and animals. About 3 to 5 cents more and 10 to 20 seconds slower."},
     {"id": "landscape", "label": "Bob Ross landscape",
      "hint": "Jev picks the time of day, mountain, clouds, trees and cabin from your words. Landscapes only."},
 ]
@@ -167,6 +169,8 @@ class Studio:
                    "--workers", str(self.args.workers)]
             if mode == "anything":
                 cmd += ["--freeform", "--planner-model", self.args.planner_model]
+            elif mode == "detailed":
+                cmd += ["--freeform", "--planner-model", self.args.detailed_model, "--planner-effort", "medium"]
             log = open(os.path.join(run_dir, "log.txt"), "w")
             env = dict(os.environ, PYTHONUNBUFFERED="1")
             self.proc = subprocess.Popen(cmd, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,
@@ -376,6 +380,8 @@ def main():
     ap.add_argument("--daily-cap", type=float, default=2.00, help="stop accepting paintings after this much today (0 = no cap)")
     ap.add_argument("--planner-model", default="google/gemini-3.1-flash-lite",
                     help='OpenRouter model that plans "Anything" paintings as shapes')
+    ap.add_argument("--detailed-model", default="google/gemini-3.5-flash",
+                    help='OpenRouter model that plans "Anything \u00b7 detailed" paintings')
     ap.add_argument("--workers", type=int, default=16, help="Jev requests in flight per painting (more = faster)")
     ap.add_argument("--open", action="store_true", help="open the Studio in your browser")
     args = ap.parse_args()
