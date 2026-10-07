@@ -174,45 +174,62 @@ def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=120):
         scene["usage"] = {"cost": 0.0, "cached": True}
         return scene
 
-    r = requests.post(
-        CHAT_URL,
-        headers={"Authorization": f"Bearer {load_key()}", "Content-Type": "application/json",
-                 "X-OpenRouter-Title": "Jev Studio"},
-        data=json.dumps({
-            "model": model,
-            "messages": [{"role": "system", "content": SYSTEM},
-                         {"role": "user", "content": f"Picture to paint: {prompt}"}],
-            "response_format": {"type": "json_object"},
-            "temperature": 0.3,
-            "max_tokens": 3000,
-            "usage": {"include": True},
-        }),
-        timeout=timeout,
-    )
-    if r.status_code != 200:
-        raise PlanError(f"planner request failed: HTTP {r.status_code}: {r.text[:400]}")
-    body = r.json()
-    try:
-        content = body["choices"][0]["message"]["content"]
-    except (KeyError, IndexError, TypeError):
-        raise PlanError(f"planner returned no message: {json.dumps(body)[:400]}")
-    text = content.strip()
-    if text.startswith("```"):
-        text = text.strip("`").split("\n", 1)[-1]
-    start, end = text.find("{"), text.rfind("}")
-    try:
-        raw = json.loads(text[start:end + 1])
-    except ValueError:
-        raise PlanError(f"planner reply was not valid JSON: {text[:300]}")
+    payload = {
+        "model": model,
+        "messages": [{"role": "system", "content": SYSTEM},
+                     {"role": "user", "content": f"Picture to paint: {prompt}"}],
+        "response_format": {"type": "json_object"},
+        "temperature": 0.3,
+        "max_tokens": 4000,
+        "usage": {"include": True},
+        # a layout needs no chain of thought: thinking only adds seconds and output tokens
+        "reasoning": {"enabled": False, "exclude": True},
+    }
+    raw, cost, errors = None, 0.0, []
+    for attempt in range(2):
+        r = requests.post(
+            CHAT_URL,
+            headers={"Authorization": f"Bearer {load_key()}", "Content-Type": "application/json",
+                     "X-OpenRouter-Title": "Jev Studio"},
+            data=json.dumps(payload),
+            timeout=timeout,
+        )
+        if r.status_code != 200:
+            if attempt == 0 and r.status_code == 400:
+                errors.append(f"HTTP 400: {r.text[:200]}")
+                payload.pop("response_format", None)  # some providers refuse JSON mode; the prompt asks for JSON anyway
+                payload.pop("reasoning", None)
+                continue
+            raise PlanError(f"planner request failed: HTTP {r.status_code}: {r.text[:400]}")
+        body = r.json()
+        cost += float((body.get("usage") or {}).get("cost") or 0.0)
+        try:
+            choice = body["choices"][0]
+            message = choice.get("message") or {}
+        except (KeyError, IndexError, TypeError):
+            raise PlanError(f"planner returned no message: {json.dumps(body)[:400]}")
+        text = (message.get("content") or message.get("reasoning") or message.get("reasoning_content") or "").strip()
+        if text.startswith("```"):
+            text = text.strip("`").split("\n", 1)[-1]
+        start, end = text.find("{"), text.rfind("}")
+        if start >= 0 and end > start:
+            try:
+                raw = json.loads(text[start:end + 1])
+                break
+            except ValueError:
+                errors.append(f"not valid JSON (finish_reason={choice.get('finish_reason')}): {text[:150]}")
+        else:
+            errors.append(f"empty reply (finish_reason={choice.get('finish_reason')})")
+        payload.pop("response_format", None)  # retry once in plain mode
+    if raw is None:
+        raise PlanError(f"{model} did not return a usable plan: " + " | ".join(errors))
 
     scene = validate(raw)
     scene.update(prompt=prompt, model=model)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         json.dump(scene, f, indent=2)
-    usage = body.get("usage") or {}
-    scene["usage"] = {"cost": float(usage.get("cost") or 0.0), "input_tokens": usage.get("prompt_tokens"),
-                      "output_tokens": usage.get("completion_tokens")}
+    scene["usage"] = {"cost": cost}
     return scene
 
 
