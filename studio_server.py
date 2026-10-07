@@ -8,7 +8,7 @@ from a prompt typed in the browser. Standard library only.
   python3 studio_server.py --port 8080 --open  # another port, and open the browser
   python3 studio_server.py --daily-cap 1 --max-cost 0.25
 
-Two styles. "Anything": a chat model on OpenRouter (default z-ai/glm-5.3-flash) plans the prompt as
+Two styles. "Anything": a chat model on OpenRouter (default google/gemini-3.1-flash-lite) plans the prompt as
 coloured shapes and Jev paints them. "Bob Ross landscape": the prompt steers Jev's composition
 choices for the mountain-lake scene. Either way, Jev decides every block of the canvas.
 Only listens on 127.0.0.1, and every paint request must carry this server's session token.
@@ -374,7 +374,7 @@ def main():
                     help="blocks is about 5x cheaper than one decision per pixel")
     ap.add_argument("--max-cost", type=float, default=0.50, help="hard cap in USD for each painting")
     ap.add_argument("--daily-cap", type=float, default=2.00, help="stop accepting paintings after this much today (0 = no cap)")
-    ap.add_argument("--planner-model", default="z-ai/glm-5.3-flash",
+    ap.add_argument("--planner-model", default="google/gemini-3.1-flash-lite",
                     help='OpenRouter model that plans "Anything" paintings as shapes')
     ap.add_argument("--workers", type=int, default=16, help="Jev requests in flight per painting (more = faster)")
     ap.add_argument("--open", action="store_true", help="open the Studio in your browser")

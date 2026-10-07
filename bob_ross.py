@@ -703,9 +703,9 @@ def main():
     ap.add_argument("--prompt", help="what the painting should look like; steers Jev's composition decisions")
     ap.add_argument("--freeform", action="store_true",
                     help="paint anything: a chat model plans --prompt as coloured shapes, then Jev paints them")
-    ap.add_argument("--planner-model", default="z-ai/glm-5.3-flash", help="freeform: the OpenRouter model that plans the shapes")
+    ap.add_argument("--planner-model", default="google/gemini-3.1-flash-lite", help="freeform: the OpenRouter model that plans the shapes")
     ap.add_argument("--replan", action="store_true", help="freeform: plan the prompt again instead of using the cached plan")
-    ap.add_argument("--planner-fallback", default="google/gemini-3.1-flash-lite",
+    ap.add_argument("--planner-fallback", default="z-ai/glm-5.3-flash",
                     help="freeform: model to plan with if --planner-model is slow or fails ('' for none)")
     ap.add_argument("--run-dir", help="write the run here instead of runs/bobross-<method>-<size>-<hash> (used by the Studio)")
     args = ap.parse_args()

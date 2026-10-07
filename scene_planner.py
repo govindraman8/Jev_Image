@@ -20,8 +20,8 @@ import requests
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CHAT_URL = os.environ.get("PLANNER_API_URL", "https://openrouter.ai/api/v1/chat/completions")
-FALLBACK_MODEL = "google/gemini-3.1-flash-lite"  # used when the main model is slow, down or returns nothing
-DEFAULT_MODEL = "z-ai/glm-5.3-flash"  # cheap and quick; any OpenRouter chat model works (e.g. google/gemini-3.1-flash-lite)
+DEFAULT_MODEL = "google/gemini-3.1-flash-lite"  # fastest cheap option; thinking can be kept low
+FALLBACK_MODEL = "z-ai/glm-5.3-flash"  # cheaper per token, but always thinks first, so slower
 MAX_PAINTS = 16
 MAX_SHAPES = 120
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
@@ -195,10 +195,10 @@ def _plan(prompt, model, fresh, timeout):
                      {"role": "user", "content": f"Picture to paint: {prompt}"}],
         "response_format": {"type": "json_object"},
         "temperature": 0.3,
-        "max_tokens": 4000,
+        "max_tokens": 12000,  # room for a model that insists on thinking before it writes the plan
         "usage": {"include": True},
-        # a layout needs no chain of thought: thinking only adds seconds and output tokens
-        "reasoning": {"enabled": False, "exclude": True},
+        # a layout needs little thought; some models refuse to switch thinking off, so ask for the least
+        "reasoning": {"effort": "low", "exclude": True},
     }
     raw, cost, errors = None, 0.0, []
     for attempt in range(2):
@@ -241,6 +241,8 @@ def _plan(prompt, model, fresh, timeout):
         else:
             errors.append(f"empty reply (finish_reason={choice.get('finish_reason')})")
         payload.pop("response_format", None)  # retry once in plain mode
+        if choice.get("finish_reason") == "length":
+            payload["max_tokens"] = 24000  # thinking ate the budget: give the retry more room
     if raw is None:
         raise PlanError(f"{model} did not return a usable plan: " + " | ".join(errors))
 
