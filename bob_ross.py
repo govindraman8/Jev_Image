@@ -701,11 +701,19 @@ def main():
     ap.add_argument("--reach", type=int, default=12, help="laya engine: columns each side of a pixel shown to Laya")
     ap.add_argument("--chunk", type=int, default=128, help="laya engine: pixels per batch (and per live update)")
     ap.add_argument("--prompt", help="what the painting should look like; steers Jev's composition decisions")
+    ap.add_argument("--freeform", action="store_true",
+                    help="paint anything: a chat model plans --prompt as coloured shapes, then Jev paints them")
+    ap.add_argument("--planner-model", default="z-ai/glm-5.3-flash", help="freeform: the OpenRouter model that plans the shapes")
+    ap.add_argument("--replan", action="store_true", help="freeform: plan the prompt again instead of using the cached plan")
     ap.add_argument("--run-dir", help="write the run here instead of runs/bobross-<method>-<size>-<hash> (used by the Studio)")
     args = ap.parse_args()
     size, blocks = args.size, args.method == "blocks"
     if blocks and (args.top & (args.top - 1) or size % args.top):
         ap.error("--top must be a power of two that divides --size")
+    if args.freeform and not args.prompt:
+        ap.error("--freeform needs --prompt")
+    if args.freeform and args.engine == "laya":
+        ap.error("--freeform paints with Jev only")
 
     laya = None
     if args.engine == "laya" or args.composer == "laya":
@@ -713,14 +721,34 @@ def main():
         t_load = time.time()
         laya = Laya(args.ckpt, dtype="fp16")
         print(f"Laya ({args.ckpt}) loaded in {time.time() - t_load:.0f}s on {laya.device}")
-    composition = compose_with_laya(laya) if args.composer == "laya" else compose(args.recompose, args.prompt)
-    print(f"{composition.get('composer', 'Jev')}'s composition:")
-    for d in composition["decisions"]:
-        print(f"  {d['question']}  ->  {d['answer']}  ({d['confidence']:.0%})")
+    if args.freeform:
+        from scene_planner import PlanError, plan, to_layers
+        try:
+            scene = plan(args.prompt, args.planner_model, fresh=args.replan)
+        except PlanError as e:
+            raise SystemExit(f"planning failed: {e}")
+        paints = scene["paints"]
+        composition = {
+            "values": {}, "composer": args.planner_model, "prompt": args.prompt, "scene": scene,
+            "usage": scene["usage"],
+            "decisions": [{"question": f"{len(scene['shapes'])} shapes, {len(paints)} paints",
+                           "answer": scene.get("title") or args.prompt, "confidence": 1.0}],
+        }
+        print(f"{args.planner_model} planned \"{scene.get('title') or args.prompt}\": {len(scene['shapes'])} shapes, "
+              f"{len(paints)} paints" + (" (cached plan)" if scene["usage"].get("cached") else
+                                         f", ${scene['usage']['cost']:.4f}"))
+        layers = to_layers(scene)
+    else:
+        paints = PAINTS
+        composition = compose_with_laya(laya) if args.composer == "laya" else compose(args.recompose, args.prompt)
+        print(f"{composition.get('composer', 'Jev')}'s composition:")
+        for d in composition["decisions"]:
+            print(f"  {d['question']}  ->  {d['answer']}  ({d['confidence']:.0%})")
+        layers = build_scene(composition["values"])
 
-    grid = rasterise(build_scene(composition["values"]), size)
+    grid = rasterise(layers, size)
     used = {paint for line in grid for paint in line}
-    palette = {name: code for name, code in PAINTS.items() if name in used}
+    palette = {name: code for name, code in paints.items() if name in used}
     truth = [hex_to_rgb(palette[paint]) for line in grid for paint in line]
     spans = [len(row_spans(line)) for line in grid]
     row_paints = [[name for name in palette if name in set(line)] for line in grid]
@@ -763,7 +791,9 @@ def main():
 
     live = LiveCanvas(run_dir, size, {
         "title": args.prompt or TITLE, "size": size, "pixels_total": size * size,
-        "byline": (f"{size} × {size} pixels, painted by Jev in blocks, big strokes first" if blocks
+        "byline": (f"{size} × {size} pixels, shapes planned by {args.planner_model}, painted by Jev in blocks"
+                   if args.freeform and blocks else
+                   f"{size} × {size} pixels, painted by Jev in blocks, big strokes first" if blocks
                    else f"{size} × {size} pixels, decided one by one by Jev"),
         "est_cost": round(estimate + compose_cost, 4), "decisions": composition["decisions"],
         "palette": [{"name": name, "hex": code} for name, code in palette.items()],
@@ -842,7 +872,7 @@ def main():
     total_cost = painter.usage["cost"] + compose_cost
     with open(os.path.join(run_dir, "run.json"), "w") as f:
         json.dump({
-            "title": TITLE, "prompt": args.prompt, "model": MODEL, "size": size, "method": args.method, "variant": variant,
+            "title": TITLE, "prompt": args.prompt, "freeform": args.freeform, "model": MODEL, "size": size, "method": args.method, "variant": variant,
             "fingerprint": fingerprint, "composition": composition, "palette": palette,
             "decisions": progress["asked"], "failed_requests": painter.failed_chunks,
             "unpainted_pixels": unpainted, "usage": painter.usage, "composition_cost": compose_cost,

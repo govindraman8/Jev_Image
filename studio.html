@@ -172,6 +172,8 @@
 
   .sizes{ display:flex; flex-wrap:wrap; gap:7px; }
   .sizes .opt{ position:relative; }
+  #modeGroup{ margin-bottom:18px; }
+  .modehint{ font-size:12px; line-height:1.45; color:var(--ink-3); margin:8px 0 0; }
   .sizes input{
     position:absolute; opacity:0; width:100%; height:100%;
     left:0; top:0; margin:0; cursor:pointer;
@@ -504,7 +506,7 @@
   <header class="masthead is-away" id="mast">
     <div>
       <h1 class="title" id="studioTitle">The Studio</h1>
-      <p class="byline" id="studioTagline">a prompt in, a painting out &mdash; decided pixel by pixel by Jev</p>
+      <p class="byline" id="studioTagline">a prompt in, a painting out &mdash; decided block by block by Jev</p>
     </div>
     <div class="status"><span class="dot" aria-hidden="true"></span><span id="statusText">Opening up</span></div>
   </header>
@@ -517,7 +519,7 @@
     <form class="desk" id="composerForm" novalidate>
       <label class="label" for="promptInput">What should Jev paint?</label>
       <textarea id="promptInput" name="prompt" rows="4" maxlength="400"
-        placeholder="A quiet lake at dusk, pines on the far shore, one small cabin with a lit window&hellip;"
+        placeholder="A human face, a red fox in the snow, a lighthouse at night&hellip;"
         autocomplete="off" spellcheck="true"></textarea>
       <div class="deskfoot">
         <p class="hint" id="submitHint"><kbd>&#8984;</kbd> or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to paint</p>
@@ -526,6 +528,12 @@
     </form>
 
     <div class="controls">
+      <fieldset id="modeGroup" hidden>
+        <legend class="label">Style</legend>
+        <div class="sizes" id="modeOptions"></div>
+        <p class="modehint" id="modeHint"></p>
+      </fieldset>
+
       <fieldset id="sizeGroup" hidden>
         <legend class="label">Canvas</legend>
         <div class="sizes" id="sizeOptions"></div>
@@ -554,7 +562,7 @@
     <div id="stageIdle">
       <div class="frame">
         <div class="mat easel">
-          <p class="empty-note" id="stageIdleNote">The easel is empty. Write a prompt above and Jev will mix the paint.</p>
+          <p class="empty-note" id="stageIdleNote">The easel is empty. Describe anything above and Jev will mix the paint.</p>
         </div>
       </div>
     </div>
@@ -579,9 +587,9 @@
     <div class="emptybox" id="galleryEmpty">
       <p id="galleryEmptyNote">No paintings yet. Give Jev a scene and watch the canvas fill in, block by block.</p>
       <div class="examples" id="galleryExamples">
-        <button type="button" id="example1">A quiet lake at dusk, pines on the far shore, one lit cabin window</button>
-        <button type="button" id="example2">Snow on a mountain ridge, cold blue shadows, a pale winter sun</button>
-        <button type="button" id="example3">A wheat field under a high summer sky, one crooked fence post</button>
+        <button type="button" id="example1">A smiling human face with brown hair and green eyes</button>
+        <button type="button" id="example2">A red fox sitting in the snow under a full moon</button>
+        <button type="button" id="example3">A lighthouse on a cliff at night, its beam crossing a stormy sea</button>
       </div>
       <p class="exhint" id="exampleHint">These only fill the box. Nothing is painted until you press Paint it.</p>
     </div>
@@ -606,6 +614,8 @@
     promptMax: 400,
     sizes: [],
     size: null,
+    modes: [],
+    mode: null,
     status: null,
     busy: false,
     run: null,
@@ -733,6 +743,12 @@
       text($("aboutLine"), s.about ? String(s.about)
         : "Jev paints small pixel landscapes — one prompt, one canvas at a time.");
 
+      state.modes = Array.isArray(s.modes) ? s.modes.filter(function (m) { return m && m.id; }) : [];
+      if (!state.mode || !state.modes.some(function (m) { return m.id === state.mode; })) {
+        state.mode = state.modes.length ? (s.default_mode || state.modes[0].id) : null;
+      }
+
+      buildModes();
       buildSizes();
       render();
     }).catch(function () {
@@ -740,6 +756,36 @@
       render();
       state.sessionTimer = setTimeout(loadSession, SESSION_RETRY_MS);
     });
+  }
+
+  function buildModes() {
+    var host = $("modeOptions");
+    host.textContent = "";
+    $("modeGroup").hidden = state.modes.length < 2;
+    state.modes.forEach(function (m) {
+      var wrap = document.createElement("label");
+      wrap.className = "opt";
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = "mode";
+      input.id = "mode-" + m.id;
+      input.value = m.id;
+      input.checked = (m.id === state.mode);
+      input.addEventListener("change", function () {
+        if (input.checked) { state.mode = m.id; renderModeHint(); render(); }
+      });
+      var span = document.createElement("span");
+      span.textContent = m.label || m.id;
+      wrap.appendChild(input);
+      wrap.appendChild(span);
+      host.appendChild(wrap);
+    });
+    renderModeHint();
+  }
+
+  function renderModeHint() {
+    var m = state.modes.filter(function (x) { return x.id === state.mode; })[0];
+    text($("modeHint"), m && m.hint ? String(m.hint) : "");
   }
 
   function buildSizes() {
@@ -1098,7 +1144,7 @@
     text($("paintError"), "");
     render();
 
-    postJSON("/api/paint", { prompt: prompt, size: size }).then(function (d) {
+    postJSON("/api/paint", { prompt: prompt, size: size, mode: state.mode }).then(function (d) {
       markUp();
       state.posting = false;
       if (d && d.run) {
