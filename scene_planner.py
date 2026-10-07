@@ -28,24 +28,37 @@ HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 
 SYSTEM = """You design flat, bold pixel-art pictures for a painter that can only fill coloured shapes.
 Reply with ONE compact JSON object and nothing else:
-{"t":"short title","p":{"Sky":"#9EC9E8","Skin":"#E2B48C","Hair":"#5A3A22"},"bg":"Sky","s":[
- ["e","Hair",0.5,0.42,0.31,0.34],
- ["e","Skin",0.5,0.48,0.25,0.3],
- ["p","Hair",0.24,0.4,0.5,0.13,0.76,0.4,0.5,0.3],
- ["l","Hair",0.35,0.4,0.46,0.39,0.02],
- ["r","Skin",0.42,0.72,0.58,0.86]]}
+{"t":"short title",
+ "k":["key visual features of the subject, 4 to 8 short phrases, e.g. long curved neck, one tall hump, four thin legs with knobbly knees"],
+ "p":{"Sky":"#9EC9E8","Fur":"#C8803E","Fur Shade":"#8E5426","Outline":"#3B2414"},
+ "bg":"Sky",
+ "s":[
+  ["r","Sand",0,0.7,1,1],
+  ["e","Outline",0.5,0.5,0.23,0.15],
+  ["e","Fur",0.5,0.5,0.21,0.13],
+  ["p","Fur Shade",0.3,0.55,0.7,0.55,0.62,0.62,0.38,0.62],
+  ["l","Outline",0.36,0.6,0.34,0.85,0.05],
+  ["l","Fur",0.36,0.6,0.34,0.85,0.03]]}
 
-"p" = paints: 4 to 12 entries, name -> #RRGGBB. Names: 1 to 2 plain words, letters and spaces only.
+"k" = what makes the subject recognisable. Write it first, then draw every item in it.
+"p" = paints: 5 to 12 entries, name -> #RRGGBB. Names: 1 to 2 plain words, letters and spaces only.
+  Include, for the main subject: a base colour, a darker shade of it, and a dark outline colour.
 "bg" = the paint that fills the whole canvas first.
-"s" = shapes, painted in order, back to front (big forms first, small details last). Each shape is an array:
+"s" = shapes, painted in order, back to front. Each shape is an array:
   ["r", paint, x0, y0, x1, y1]          rectangle
   ["e", paint, cx, cy, rx, ry]          ellipse
-  ["p", paint, x1, y1, x2, y2, ...]     polygon, 3 to 16 points
-  ["l", paint, x0, y0, x1, y1, width]   thick line: brows, mouths, stems, whiskers, outlines
-The canvas is a unit square: x 0 (left) to 1 (right), y 0 (top) to 1 (bottom). Use at most 2 decimal places.
-Use 12 to 45 shapes. Make the subject large, centred and instantly recognisable, like a flat icon: strong
-silhouettes, clear contrast between neighbours, one darker shade for shading. Nothing thinner than 0.02.
-Paint exactly what is asked for, whatever it is: people, animals, objects, places, scenes, patterns. No text."""
+  ["p", paint, x1, y1, x2, y2, ...]     polygon, 3 to 16 points, for silhouettes and angled parts
+  ["l", paint, x0, y0, x1, y1, width]   thick line: legs, necks, tails, arms, brows, mouths, stems
+Canvas: unit square, x 0 (left) to 1 (right), y 0 (top) to 1 (bottom). At most 2 decimal places.
+
+How to draw well:
+- Build the subject from separate parts (head, neck, body, each leg, tail, ears, eyes...), never one blob.
+- Outline the subject: draw each main part first in the outline paint, slightly bigger (or a wider line),
+  then the same part again in its base colour on top.
+- Add a darker shade on the underside or the side away from the light; add 1 or 2 highlights.
+- Ground the scene: a horizon or floor, and a simple shadow under the subject.
+- The subject fills 50 to 80 percent of the canvas, centred. Nothing thinner than 0.02.
+- Use 30 to 70 shapes. Paint exactly what is asked for, whatever it is. No text."""
 
 
 class PlanError(Exception):
@@ -179,7 +192,7 @@ def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=40, fallback=FALLBACK
 def _plan(prompt, model, fresh, timeout):
     """The scene for a prompt: from the cache if this prompt and model were planned before."""
     prompt = " ".join(prompt.split())
-    digest = hashlib.sha256(json.dumps([prompt, model]).encode()).hexdigest()[:12]
+    digest = hashlib.sha256(json.dumps([prompt, model, SYSTEM]).encode()).hexdigest()[:12]  # new instructions, new plan
     path = os.path.join(ROOT, "runs", "plans", f"{digest}.json")
     if os.path.exists(path) and not fresh:
         with open(path) as f:
