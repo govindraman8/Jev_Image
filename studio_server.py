@@ -101,7 +101,7 @@ class Studio:
     def __init__(self, args):
         self.args = args
         self.token = secrets.token_urlsafe(24)
-        self.lock = threading.Lock()
+        self.lock = threading.RLock()  # re-entrant: start() reads the gallery while holding it
         self.proc = None
         self.current = None
 
@@ -127,10 +127,10 @@ class Studio:
 
     def start(self, prompt, size):
         self.poll()
+        spent = self.spent_today()  # outside the lock: it walks every run folder
         with self.lock:
             if self.proc is not None:
                 raise StudioError(HTTPStatus.CONFLICT, "A painting is already at the easel. Wait for it to finish.")
-            spent = self.spent_today()
             if self.args.daily_cap > 0 and spent >= self.args.daily_cap:
                 raise StudioError(HTTPStatus.PAYMENT_REQUIRED,
                                   f"Today's cap of ${self.args.daily_cap:.2f} has been spent. Raise --daily-cap to paint more.")

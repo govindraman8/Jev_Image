@@ -495,6 +495,7 @@
     }
     .card:hover{ transform:none; }
   }
+  .cap-err{ font-size:12px; line-height:1.45; color:var(--warn); margin:6px 0 0; text-align:left; overflow-wrap:anywhere; }
 </style>
 </head>
 <body>
@@ -929,6 +930,13 @@
         meta.appendChild(t);
       }
       card.appendChild(meta);
+
+      if (r.error) {
+        var err = document.createElement("p");
+        err.className = "cap-err";
+        err.textContent = "Didn't finish: " + String(r.error);
+        card.appendChild(err);
+      }
 
       card.addEventListener("click", function () {
         showRun(r.run, r.prompt, r.size, !r.finished, true);
