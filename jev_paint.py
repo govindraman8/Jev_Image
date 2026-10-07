@@ -23,7 +23,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
 from PIL import Image
 
-URL = "https://openrouter.ai/api/alpha/decisions"
+URL = os.environ.get("JEV_API_URL", "https://openrouter.ai/api/alpha/decisions")  # override to point at a stub for offline testing
 MODEL = "typesafe/jev-1.13"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 

@@ -120,9 +120,22 @@ SIGNATURE = {
 }
 
 
-def compose(fresh):
-    """Jev's composition decisions, asked once and kept so every size paints the same scene."""
-    path = os.path.join(ROOT, "runs", "bobross_composition.json")
+def composer_state(prompt):
+    """The composer's brief. A viewer's prompt (from the Studio) steers the choices Jev makes."""
+    if not prompt:
+        return COMPOSER_STATE
+    return (COMPOSER_STATE + "\n\nA viewer has asked for this painting:\n\"" + prompt.strip() + "\"\n"
+            "Make every decision so the finished painting matches their request as closely as the choices allow.")
+
+
+def compose(fresh, prompt=None):
+    """Jev's composition decisions, asked once and kept so every size paints the same scene.
+    With a prompt, the decisions are cached per prompt instead."""
+    if prompt:
+        digest = hashlib.sha256(prompt.strip().encode()).hexdigest()[:12]
+        path = os.path.join(ROOT, "runs", "compositions", f"{digest}.json")
+    else:
+        path = os.path.join(ROOT, "runs", "bobross_composition.json")
     if os.path.exists(path) and not fresh:
         with open(path) as f:
             return json.load(f)
@@ -135,7 +148,7 @@ def compose(fresh):
         URL,
         headers={"Authorization": f"Bearer {load_key()}", "Content-Type": "application/json",
                  "X-OpenRouter-Title": "Jev Paints"},
-        data=json.dumps({"model": MODEL, "state": COMPOSER_STATE, "questions": questions}),
+        data=json.dumps({"model": MODEL, "state": composer_state(prompt), "questions": questions}),
         timeout=60,
     )
     if r.status_code != 200:
@@ -154,7 +167,7 @@ def compose(fresh):
         values[key] = p >= 0.5
         decisions.append({"question": statement, "answer": "yes" if p >= 0.5 else "no",
                           "confidence": p if p >= 0.5 else 1 - p})
-    composition = {"values": values, "decisions": decisions, "usage": body.get("usage") or {}}
+    composition = {"values": values, "decisions": decisions, "usage": body.get("usage") or {}, "prompt": prompt}
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         json.dump(composition, f, indent=2)
@@ -687,6 +700,8 @@ def main():
                     help="who makes the composition decisions (jev reuses the cached ones, so both engines paint one scene)")
     ap.add_argument("--reach", type=int, default=12, help="laya engine: columns each side of a pixel shown to Laya")
     ap.add_argument("--chunk", type=int, default=128, help="laya engine: pixels per batch (and per live update)")
+    ap.add_argument("--prompt", help="what the painting should look like; steers Jev's composition decisions")
+    ap.add_argument("--run-dir", help="write the run here instead of runs/bobross-<method>-<size>-<hash> (used by the Studio)")
     args = ap.parse_args()
     size, blocks = args.size, args.method == "blocks"
     if blocks and (args.top & (args.top - 1) or size % args.top):
@@ -698,7 +713,7 @@ def main():
         t_load = time.time()
         laya = Laya(args.ckpt, dtype="fp16")
         print(f"Laya ({args.ckpt}) loaded in {time.time() - t_load:.0f}s on {laya.device}")
-    composition = compose_with_laya(laya) if args.composer == "laya" else compose(args.recompose)
+    composition = compose_with_laya(laya) if args.composer == "laya" else compose(args.recompose, args.prompt)
     print(f"{composition.get('composer', 'Jev')}'s composition:")
     for d in composition["decisions"]:
         print(f"  {d['question']}  ->  {d['answer']}  ({d['confidence']:.0%})")
@@ -730,7 +745,8 @@ def main():
 
     variant = [args.method, args.top] if blocks else [args.method, args.menu, max_pixels]
     fingerprint = hashlib.sha256(json.dumps([MODEL, size, variant, palette, grid]).encode()).hexdigest()[:8]
-    run_dir = os.path.join(ROOT, "runs", f"bobross-{args.method}-{size}-{fingerprint}")
+    run_dir = (os.path.abspath(args.run_dir) if args.run_dir
+               else os.path.join(ROOT, "runs", f"bobross-{args.method}-{size}-{fingerprint}"))
     painter = Painter(run_dir, state_for, size, mode, max_pixels, args.workers, args.max_cost)
     compose_cost = composition["usage"].get("cost") or 0.0
     print(f"run: {run_dir}")
@@ -746,7 +762,7 @@ def main():
         raise SystemExit(f"estimated cost ${estimate:.2f} exceeds --max-cost ${args.max_cost:.2f}; nothing sent")
 
     live = LiveCanvas(run_dir, size, {
-        "title": TITLE, "size": size, "pixels_total": size * size,
+        "title": args.prompt or TITLE, "size": size, "pixels_total": size * size,
         "byline": (f"{size} × {size} pixels, painted by Jev in blocks, big strokes first" if blocks
                    else f"{size} × {size} pixels, decided one by one by Jev"),
         "est_cost": round(estimate + compose_cost, 4), "decisions": composition["decisions"],
@@ -826,7 +842,7 @@ def main():
     total_cost = painter.usage["cost"] + compose_cost
     with open(os.path.join(run_dir, "run.json"), "w") as f:
         json.dump({
-            "title": TITLE, "model": MODEL, "size": size, "method": args.method, "variant": variant,
+            "title": TITLE, "prompt": args.prompt, "model": MODEL, "size": size, "method": args.method, "variant": variant,
             "fingerprint": fingerprint, "composition": composition, "palette": palette,
             "decisions": progress["asked"], "failed_requests": painter.failed_chunks,
             "unpainted_pixels": unpainted, "usage": painter.usage, "composition_cost": compose_cost,
