@@ -1,0 +1,9 @@
+# Pinned to the versions in laya-mlx's own uv.lock (commit 0a859518634112655cb97c745dbf04f5191aaf13).
+mlx==0.32.2
+mlx-metal==0.32.2
+numpy==2.4.6
+tokenizers==0.23.2
+huggingface-hub==1.32.0
+# laya-mlx 0.2.0 wheel from PyPI, sha256 1a80a0cc79c55be808de0b1208a172566209b5780d796b98d86235e9cf335187,
+# byte-identical (package files) to git commit 0a85951 of https://github.com/mizorewww/laya-mlx
+./vendor/laya_mlx-0.2.0-py3-none-any.whl

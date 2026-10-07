@@ -1,0 +1,30 @@
+I made an AI paint a Bob Ross landscape one pixel at a time.
+
+65,536 separate decisions. 48 seconds. $1.05. The video shows every stroke, at 4x speed.
+
+The painter is Jev, TypeSafe's decision model on OpenRouter. It writes no text. You send it a situation and typed questions. It returns a choice and a confidence.
+
+So I made every pixel a question.
+
+First Jev composed the painting. Eight decisions, including:
+- Bright clear day (69% sure)
+- Mountain left of centre (55%)
+- Two or three happy little clouds (94%)
+- A second mountain, because everybody needs a friend (72%)
+- No cabin (57%)
+
+Then it painted. For each pixel it picked one hex code from 18 paints: Titanium White, Phthalo Blue, Van Dyke Brown. 512 requests. 99.19% of pixels landed right. The corner reads JEV in Bright Red.
+
+Three things I learned:
+
+1. Words trip it up. My first version asked for the amount of red, green and blue in each pixel. Jev painted the white background green. It read "amount of red" as "is this a red thing?" Accuracy was 19%. I renamed the channels R, G and B and restructured the brief. Accuracy hit 97%.
+
+2. Plain English gives a blur. I asked for the word HI in red on white. I got a red smudge up top and blue below. Mood, no shapes.
+
+3. The honest part: my code drew the geometry. Each request told Jev which colours sit in that row. Jev chose the composition and every pixel's paint. It did not imagine the mountain.
+
+Jev costs $0.042 per million input tokens. It made 65,536 decisions in under a minute and got 99% right. Painting is a toy. Routing, triage and classification at that price are not.
+
+What would you hand to a model that only makes decisions?
+
+#AI #BuildInPublic #GenerativeArt

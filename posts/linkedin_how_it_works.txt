@@ -1,0 +1,29 @@
+I got an AI that can't write or draw to paint a Bob Ross landscape.
+
+It's paint-by-numbers. My code makes the numbered sheet. The AI picks the paint for every spot. 35 seconds. 24 cents. The video replays it at 4x speed.
+
+The AI is Jev, TypeSafe's decision model on OpenRouter. Jev does one thing. It answers multiple-choice questions and says how sure it is. No text. No images.
+
+Here is how the painting works.
+
+1. Jev plans the picture. I ask eight questions. Day or sunset? Where does the mountain go? A cabin or not? Jev chose a bright clear day (69% sure), two or three happy little clouds (94%), and a second mountain, because everybody needs a friend (72%).
+
+2. My code draws the sheet. It works out where the mountain, trees and lake go. Jev never sees a picture.
+
+3. Jev paints. I ask about a big square first: "Is this square all one colour?" If yes, Jev names the paint and the whole square goes on. If no, I cut it in four and ask again. The sky takes a few big strokes. Only the edges go pixel by pixel.
+
+The result: 512 x 512 pixels from 37,856 decisions. 99.81% of pixels right. The wrong picks show up as tiny specks, like brush slips.
+
+Why I think Jev is cool:
+- It's fast. 37,856 decisions in 35 seconds.
+- It's cheap. $0.042 per million input tokens, and the answers are free.
+- It tells you how sure it is, every single time.
+- It answers only what you ask. No essays.
+
+The honest part: Jev did not imagine the mountain. The shapes came from my code. Jev chose the composition and made every colour choice. Give it only a description in words and it paints a blur.
+
+Painting is a toy. But plenty of software makes thousands of small decisions a day: routing, triage, sorting, checking. A model like this fits there.
+
+What would you hand to a model that only makes decisions?
+
+#AI #BuildInPublic #GenerativeArt

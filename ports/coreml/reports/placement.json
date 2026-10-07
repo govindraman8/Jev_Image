@@ -1,0 +1,566 @@
+{
+ "english L128 CPU_AND_NE": {
+  "ops": 1218,
+  "ops_by_device": {
+   "CPU": 10,
+   "ANE": 1208
+  },
+  "ops_share": {
+   "CPU": 0.8,
+   "ANE": 99.2
+  },
+  "estimated_cost_share": {
+   "CPU": 14.2,
+   "ANE": 85.8
+  },
+  "cpu_ops": [
+   {
+    "op": "ios17.cast",
+    "output": "attention_mask_to_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.sub",
+    "output": "var_1335_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.reshape",
+    "output": "var_1341_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.mul",
+    "output": "pad_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_3_cast_fp16",
+    "device": "CPU",
+    "cost": 5e-05,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_cast_fp16",
+    "device": "CPU",
+    "cost": 5e-05,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.greater_equal",
+    "output": "greater_equal_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "add_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "select",
+    "output": "select_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.gather",
+    "output": "input_3_cast_fp16",
+    "device": "CPU",
+    "cost": 0.1415,
+    "supported": [
+     "CPU"
+    ]
+   }
+  ]
+ },
+ "english L128 ALL": {
+  "ops": 1218,
+  "ops_by_device": {
+   "GPU": 41,
+   "ANE": 1177
+  },
+  "ops_share": {
+   "GPU": 3.4,
+   "ANE": 96.6
+  },
+  "estimated_cost_share": {
+   "GPU": 14.1,
+   "ANE": 85.9
+  },
+  "cpu_ops": []
+ },
+ "english L128 CPU_AND_GPU": {
+  "ops": 1218,
+  "ops_by_device": {
+   "GPU": 1218
+  },
+  "ops_share": {
+   "GPU": 100.0
+  },
+  "estimated_cost_share": {
+   "GPU": 100.0
+  },
+  "cpu_ops": []
+ },
+ "multilingual L128 CPU_AND_NE": {
+  "ops": 978,
+  "ops_by_device": {
+   "CPU": 10,
+   "ANE": 968
+  },
+  "ops_share": {
+   "CPU": 1.0,
+   "ANE": 99.0
+  },
+  "estimated_cost_share": {
+   "CPU": 59.0,
+   "ANE": 41.0
+  },
+  "cpu_ops": [
+   {
+    "op": "ios17.cast",
+    "output": "attention_mask_to_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.sub",
+    "output": "var_1095_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.reshape",
+    "output": "var_1101_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.mul",
+    "output": "pad_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_3_cast_fp16",
+    "device": "CPU",
+    "cost": 6e-05,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_cast_fp16",
+    "device": "CPU",
+    "cost": 6e-05,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.greater_equal",
+    "output": "greater_equal_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "add_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "select",
+    "output": "select_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.gather",
+    "output": "input_3_cast_fp16",
+    "device": "CPU",
+    "cost": 0.59017,
+    "supported": [
+     "CPU"
+    ]
+   }
+  ]
+ },
+ "multilingual L128 ALL": {
+  "ops": 978,
+  "ops_by_device": {
+   "GPU": 911,
+   "ANE": 67
+  },
+  "ops_share": {
+   "GPU": 93.1,
+   "ANE": 6.9
+  },
+  "estimated_cost_share": {
+   "GPU": 94.8,
+   "ANE": 5.2
+  },
+  "cpu_ops": []
+ },
+ "multilingual L128 CPU_AND_GPU": {
+  "ops": 978,
+  "ops_by_device": {
+   "GPU": 978
+  },
+  "ops_share": {
+   "GPU": 100.0
+  },
+  "estimated_cost_share": {
+   "GPU": 100.0
+  },
+  "cpu_ops": []
+ },
+ "multilingual L256 CPU_AND_NE": {
+  "ops": 978,
+  "ops_by_device": {
+   "CPU": 10,
+   "ANE": 968
+  },
+  "ops_share": {
+   "CPU": 1.0,
+   "ANE": 99.0
+  },
+  "estimated_cost_share": {
+   "CPU": 41.3,
+   "ANE": 58.7
+  },
+  "cpu_ops": [
+   {
+    "op": "ios17.cast",
+    "output": "attention_mask_to_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.sub",
+    "output": "var_1095_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.reshape",
+    "output": "var_1101_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.mul",
+    "output": "pad_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_3_cast_fp16",
+    "device": "CPU",
+    "cost": 0.00016,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_cast_fp16",
+    "device": "CPU",
+    "cost": 0.00016,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.greater_equal",
+    "output": "greater_equal_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "add_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "select",
+    "output": "select_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.gather",
+    "output": "input_3_cast_fp16",
+    "device": "CPU",
+    "cost": 0.41293,
+    "supported": [
+     "CPU"
+    ]
+   }
+  ]
+ },
+ "multilingual L256 ALL": {
+  "ops": 978,
+  "ops_by_device": {
+   "GPU": 911,
+   "ANE": 67
+  },
+  "ops_share": {
+   "GPU": 93.1,
+   "ANE": 6.9
+  },
+  "estimated_cost_share": {
+   "GPU": 92.9,
+   "ANE": 7.1
+  },
+  "cpu_ops": []
+ },
+ "multilingual L256 CPU_AND_GPU": {
+  "ops": 978,
+  "ops_by_device": {
+   "GPU": 978
+  },
+  "ops_share": {
+   "GPU": 100.0
+  },
+  "estimated_cost_share": {
+   "GPU": 100.0
+  },
+  "cpu_ops": []
+ },
+ "typed-decisions L128 CPU_AND_NE": {
+  "ops": 1218,
+  "ops_by_device": {
+   "CPU": 10,
+   "ANE": 1208
+  },
+  "ops_share": {
+   "CPU": 0.8,
+   "ANE": 99.2
+  },
+  "estimated_cost_share": {
+   "CPU": 14.2,
+   "ANE": 85.8
+  },
+  "cpu_ops": [
+   {
+    "op": "ios17.cast",
+    "output": "attention_mask_to_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.sub",
+    "output": "var_1335_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.reshape",
+    "output": "var_1341_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.mul",
+    "output": "pad_cast_fp16",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_3_cast_fp16",
+    "device": "CPU",
+    "cost": 5e-05,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "attention_mask_cast_fp16",
+    "device": "CPU",
+    "cost": 5e-05,
+    "supported": [
+     "ANE",
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.greater_equal",
+    "output": "greater_equal_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.add",
+    "output": "add_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "select",
+    "output": "select_0",
+    "device": "CPU",
+    "cost": 0.0,
+    "supported": [
+     "CPU"
+    ]
+   },
+   {
+    "op": "ios17.gather",
+    "output": "input_3_cast_fp16",
+    "device": "CPU",
+    "cost": 0.1415,
+    "supported": [
+     "CPU"
+    ]
+   }
+  ]
+ },
+ "typed-decisions L128 ALL": {
+  "ops": 1218,
+  "ops_by_device": {
+   "GPU": 41,
+   "ANE": 1177
+  },
+  "ops_share": {
+   "GPU": 3.4,
+   "ANE": 96.6
+  },
+  "estimated_cost_share": {
+   "GPU": 14.1,
+   "ANE": 85.9
+  },
+  "cpu_ops": []
+ },
+ "typed-decisions L128 CPU_AND_GPU": {
+  "ops": 1218,
+  "ops_by_device": {
+   "GPU": 1218
+  },
+  "ops_share": {
+   "GPU": 100.0
+  },
+  "estimated_cost_share": {
+   "GPU": 100.0
+  },
+  "cpu_ops": []
+ }
+}

@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>At the Easel</title>
+<style>
+  :root{
+    --bg:        #17130F;
+    --bg-soft:   #1E1913;
+    --line:      #2E2720;
+    --line-soft: #241E18;
+    --ink:       #EFE6D7;
+    --ink-2:     #AC9F8C;
+    --ink-3:     #7C7061;
+    --accent:    #D9A441;
+    --accent-dim:#8C6B2E;
+    --accent-bg: rgba(217,164,65,.10);
+    --good:      #8FA96C;
+    --canvasclr: #F4EFE4;
+
+    --wood-hi:   #7A5A3A;
+    --wood:      #543C26;
+    --wood-lo:   #3B2917;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  html{ background:var(--bg); -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    max-width:1260px;
+    margin:0 auto;
+    padding:34px 32px 72px;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+    padding-bottom:20px;
+    margin-bottom:30px;
+    border-bottom:1px solid var(--line);
+  }
+  .title{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:30px;
+    line-height:1.15;
+    letter-spacing:.005em;
+    margin:0 0 5px;
+    color:var(--ink);
+  }
+  .byline{
+    margin:0;
+    font-size:12.5px;
+    color:var(--ink-3);
+    letter-spacing:.03em;
+  }
+  .status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    padding-bottom:3px;
+    white-space:nowrap;
+  }
+  .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--ink-3);
+    box-shadow:0 0 0 0 rgba(217,164,65,.45);
+    flex:none;
+  }
+  .is-painting .dot{ background:var(--accent); animation:breathe 2.4s ease-in-out infinite; }
+  .is-finished .dot{ background:var(--good); }
+  @keyframes breathe{
+    0%,100%{ box-shadow:0 0 0 0 rgba(217,164,65,.42); }
+    70%    { box-shadow:0 0 0 7px rgba(217,164,65,0); }
+  }
+
+  /* ---------- layout ---------- */
+  .wrap{
+    display:grid;
+    grid-template-columns:minmax(0,812px) minmax(288px,352px);
+    gap:44px;
+    align-items:start;
+  }
+  .stage{ min-width:0; }
+  .panel{ min-width:0; }
+
+  /* ---------- the frame ---------- */
+  .frame{
+    padding:22px;
+    border-radius:5px;
+    background:
+      linear-gradient(148deg, var(--wood-hi) 0%, var(--wood) 34%, var(--wood-lo) 66%, var(--wood) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,236,204,.16),
+      inset 0 -1px 0 rgba(0,0,0,.45),
+      0 26px 52px -22px rgba(0,0,0,.85),
+      0 4px 14px -6px rgba(0,0,0,.6);
+  }
+  .mat{
+    position:relative;
+    background:var(--canvasclr);
+    border-radius:1px;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,.55),
+      inset 0 0 22px rgba(60,40,18,.16);
+    overflow:hidden;
+    line-height:0;
+  }
+  #cv{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:1 / 1;
+    image-rendering:-moz-crisp-edges;
+    image-rendering:-webkit-optimize-contrast;
+    image-rendering:crisp-edges;
+    image-rendering:pixelated;
+  }
+  .waiting{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif);
+    font-size:15px; font-style:italic;
+    line-height:1.4;
+    color:#9E9280;
+    letter-spacing:.02em;
+    background:var(--canvasclr);
+  }
+  .waiting[hidden]{ display:none; }
+
+  .plate{
+    margin:16px auto 0;
+    text-align:center;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    min-height:1em;
+  }
+  .plate[hidden]{ display:none; }
+
+  /* ---------- instrumentation ---------- */
+  .block{ padding:20px 0; border-top:1px solid var(--line-soft); }
+  .block:first-child{ padding-top:0; border-top:0; }
+  .block:last-child{ padding-bottom:0; }
+
+  .label{
+    font-size:10.5px;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    margin:0 0 10px;
+    font-weight:500;
+  }
+
+  .cost-row{ display:flex; align-items:baseline; gap:11px; flex-wrap:wrap; }
+  .cost{
+    font-family:var(--mono);
+    font-size:42px;
+    line-height:1;
+    letter-spacing:-.02em;
+    color:var(--accent);
+    font-variant-numeric:tabular-nums;
+    font-weight:500;
+  }
+  .cost-est{
+    font-size:12.5px;
+    color:var(--ink-3);
+    font-family:var(--mono);
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+
+  .pxrow{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:12px; margin-bottom:9px;
+  }
+  .pxcount{
+    font-family:var(--mono); font-size:14px; color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .pxcount .of{ color:var(--ink-3); }
+  .pxpct{
+    font-family:var(--mono); font-size:14px; color:var(--ink-2);
+    font-variant-numeric:tabular-nums;
+  }
+  .bar{
+    height:5px; border-radius:3px;
+    background:rgba(255,255,255,.055);
+    overflow:hidden;
+  }
+  .bar > i{
+    display:block; height:100%; width:0%;
+    background:var(--accent);
+    border-radius:3px;
+    transition:width .22s linear;
+  }
+  /* during replay the bar is driven every frame: a transition would lag the numbers */
+  body.replaying .bar > i{ transition:none; }
+  .chunks{
+    margin:9px 0 0;
+    font-size:11.5px; color:var(--ink-3);
+    font-family:var(--mono);
+    font-variant-numeric:tabular-nums;
+  }
+
+  .stats{ display:grid; gap:0; }
+  .stat{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:14px; padding:6px 0;
+  }
+  .stat dt{ font-size:12.5px; color:var(--ink-3); margin:0; }
+  .stat dd{
+    margin:0; font-family:var(--mono); font-size:13.5px; color:var(--ink);
+    font-variant-numeric:tabular-nums; white-space:nowrap;
+  }
+
+  /* ---------- decisions ---------- */
+  .decision{ padding:13px 0; border-top:1px dotted rgba(255,255,255,.075); }
+  .decision:first-of-type{ border-top:0; padding-top:2px; }
+  .d-q{ font-size:12.5px; color:var(--ink-3); margin:0 0 3px; line-height:1.4; }
+  .d-a{ font-family:var(--serif); font-size:16px; color:var(--ink); margin:0 0 7px; line-height:1.35; }
+  .d-c{ display:flex; align-items:center; gap:9px; }
+  .d-bar{ flex:1 1 auto; height:2px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden; }
+  .d-bar > i{ display:block; height:100%; background:var(--accent-dim); }
+  .d-num{
+    font-family:var(--mono); font-size:10.5px; color:var(--ink-3);
+    font-variant-numeric:tabular-nums; letter-spacing:.04em; flex:none;
+  }
+
+  /* ---------- palette ---------- */
+  .paints{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:9px 14px; }
+  .paint{ display:flex; align-items:center; gap:9px; min-width:0; }
+  .chip{
+    width:19px; height:19px; flex:none; border-radius:3px;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+  .paint span{
+    font-size:11.5px; color:var(--ink-2); line-height:1.25;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+
+  /* ---------- finished ---------- */
+  .finish{
+    background:var(--accent-bg);
+    border:1px solid rgba(217,164,65,.22);
+    border-radius:4px;
+    padding:16px 17px;
+    margin-bottom:22px;
+  }
+  .finish h2{
+    font-family:var(--serif); font-weight:400; font-size:19px;
+    margin:0 0 11px; color:var(--ink); letter-spacing:.01em;
+  }
+  .finish .fstats{ display:flex; flex-wrap:wrap; gap:6px 20px; margin:0 0 14px; }
+  .finish .fstat{ display:flex; flex-direction:column; gap:1px; }
+  .finish .fstat b{
+    font-family:var(--mono); font-weight:500; font-size:14px; color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .finish .fstat em{
+    font-style:normal; font-size:10px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-3);
+  }
+  .replay-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  button{
+    font-family:inherit; font-size:12.5px; color:var(--ink);
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:3px; padding:6px 13px; cursor:pointer;
+    letter-spacing:.03em;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  button:hover{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.18); }
+  button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .btn-primary{
+    background:rgba(217,164,65,.16);
+    border-color:rgba(217,164,65,.42);
+    color:#F0D9A6;
+  }
+  .btn-primary:hover{ background:rgba(217,164,65,.26); border-color:rgba(217,164,65,.6); }
+  .speeds{ display:inline-flex; border:1px solid rgba(255,255,255,.1); border-radius:3px; overflow:hidden; }
+  .speeds button{ border:0; border-radius:0; padding:6px 11px; background:transparent; color:var(--ink-3); }
+  .speeds button + button{ border-left:1px solid rgba(255,255,255,.1); }
+  .speeds button[aria-pressed="true"]{ background:rgba(217,164,65,.16); color:#F0D9A6; }
+  .replay-note{ font-size:11.5px; color:var(--ink-3); margin:11px 0 0; line-height:1.45; }
+
+  [hidden]{ display:none !important; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1080px){
+    .wrap{ grid-template-columns:minmax(0,1fr); gap:34px; }
+    .stage{ max-width:812px; margin:0 auto; width:100%; }
+    .panel{ max-width:812px; margin:0 auto; width:100%; }
+  }
+  @media (max-width:620px){
+    .page{ padding:22px 16px 52px; }
+    .masthead{ margin-bottom:22px; padding-bottom:15px; }
+    .title{ font-size:24px; }
+    .frame{ padding:13px; border-radius:4px; }
+    .cost{ font-size:36px; }
+    .paints{ grid-template-columns:1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead" id="mast">
+    <div>
+      <h1 class="title" id="title">A painting in progress</h1>
+      <p class="byline"><span id="byline">decided pixel by pixel by Jev</span></p>
+    </div>
+    <div class="status"><span class="dot" aria-hidden="true"></span><span id="statusText">Waiting</span></div>
+  </header>
+
+  <div class="wrap">
+
+    <section class="stage">
+      <div class="frame">
+        <div class="mat">
+          <canvas id="cv" width="256" height="256" role="img" aria-label="The painting as it is being made"></canvas>
+          <div class="waiting" id="waiting"><span>waiting for the painter&hellip;</span></div>
+        </div>
+      </div>
+      <p class="plate" id="plate" hidden></p>
+    </section>
+
+    <aside class="panel">
+
+      <div class="finish" id="finishBox" hidden>
+        <h2 id="finishTitle">The painting is finished</h2>
+        <div class="fstats">
+          <div class="fstat"><b id="fCost">&mdash;</b><em>final cost</em></div>
+          <div class="fstat"><b id="fTime">&mdash;</b><em>took</em></div>
+          <div class="fstat" id="fAccWrap" hidden><b id="fAcc">&mdash;</b><em>accuracy</em></div>
+        </div>
+        <div class="replay-row" id="replayRow" hidden>
+          <button type="button" class="btn-primary" id="replayBtn">Replay the painting</button>
+          <div class="speeds" role="group" aria-label="Replay speed">
+            <button type="button" data-speed="1" aria-pressed="true">1&times;</button>
+            <button type="button" data-speed="2" aria-pressed="false">2&times;</button>
+            <button type="button" data-speed="4" aria-pressed="false">4&times;</button>
+          </div>
+        </div>
+        <p class="replay-note" id="replayNote" hidden>Looking for the replay&hellip;</p>
+      </div>
+
+      <div class="block">
+        <p class="label">Cost so far</p>
+        <div class="cost-row">
+          <span class="cost" id="cost">$0.0000</span>
+          <span class="cost-est" id="est">of est. &mdash;</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="label">Painted</p>
+        <div class="pxrow">
+          <span class="pxcount"><span id="pxDone">0</span> <span class="of">/ <span id="pxTotal">0</span> px</span></span>
+          <span class="pxpct" id="pxPct">0.0%</span>
+        </div>
+        <div class="bar"><i id="bar"></i></div>
+        <p class="chunks" id="chunks">0 / 0 batches</p>
+      </div>
+
+      <div class="block">
+        <dl class="stats">
+          <div class="stat"><dt>Decisions made</dt><dd id="sAsk">&mdash;</dd></div>
+          <div class="stat"><dt>Requests</dt><dd id="sReq">0</dd></div>
+          <div class="stat"><dt>Input tokens</dt><dd id="sTok">0</dd></div>
+          <div class="stat"><dt>Elapsed</dt><dd id="sTime">0:00</dd></div>
+          <div class="stat"><dt>Pixels per second</dt><dd id="sRate">&mdash;</dd></div>
+        </dl>
+      </div>
+
+      <section class="block" id="decisionsBox" hidden>
+        <p class="label" id="decisionsLabel">Jev&rsquo;s composition decisions</p>
+        <div id="decisions"></div>
+      </section>
+
+      <section class="block" id="paletteBox" hidden>
+        <p class="label">On the palette</p>
+        <ul class="paints" id="paints"></ul>
+      </section>
+
+    </aside>
+  </div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var CANVAS_DEFAULT = "#F4EFE4";
+  var POLL_MS = 250;
+  var REPLAY_TRIES = 24;      // ~12s of retries after `finished`
+  var REPLAY_RETRY_MS = 500;
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  var cv = $("cv");
+  var ctx = cv.getContext("2d", { alpha: false });
+
+  // Native-resolution scratch buffer used for the replay. It never receives a
+  // file:// image, so it is never tainted.
+  var scratch = document.createElement("canvas");
+  var sctx = scratch.getContext("2d", { alpha: false });
+
+  var state = {
+    live: null,
+    version: -1,
+    drawnVersion: -1,
+    size: 0,
+    scale: 1,
+    canvasColour: CANVAS_DEFAULT,
+    lastGoodImg: null,
+    gotData: false,
+    finishedHandled: false,
+    polling: true,
+    elapsedBase: 0,
+    elapsedAt: 0,
+    replay: null,
+    replaySpeed: 1,
+    replaying: false,
+    rafId: 0
+  };
+
+  /* ---------------- formatting ---------------- */
+
+  function num(n) {
+    if (n === null || n === undefined || !isFinite(n)) return "—";
+    return Math.round(n).toLocaleString("en-US");
+  }
+  function money4(n) {
+    if (n === null || n === undefined || !isFinite(n)) return "$—";
+    return "$" + Number(n).toFixed(4);
+  }
+  function money2(n) {
+    if (n === null || n === undefined || !isFinite(n)) return "$—";
+    return "$" + Number(n).toFixed(2);
+  }
+  function tokens(n) {
+    if (n === null || n === undefined || !isFinite(n)) return "—";
+    n = Number(n);
+    var trim = function (v, suffix) {
+      return v.toFixed(1).replace(/\.0$/, "") + suffix;
+    };
+    if (n >= 1e9) return trim(n / 1e9, "B");
+    if (n >= 1e6) return trim(n / 1e6, "M");
+    if (n >= 1e4) return trim(n / 1e3, "K");
+    return Math.round(n).toLocaleString("en-US");
+  }
+  function clock(s) {
+    if (s === null || s === undefined || !isFinite(s)) return "—";
+    s = Math.max(0, s);
+    var h = Math.floor(s / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    var sec = Math.floor(s % 60);
+    var pad = function (v) { return v < 10 ? "0" + v : String(v); };
+    return h > 0 ? h + ":" + pad(m) + ":" + pad(sec) : m + ":" + pad(sec);
+  }
+  function pct(x, digits) {
+    if (x === null || x === undefined || !isFinite(x)) return "—";
+    return (x * 100).toFixed(digits === undefined ? 1 : digits) + "%";
+  }
+  function safeHex(h) {
+    return (typeof h === "string" && /^#?[0-9a-fA-F]{3,8}$/.test(h.trim()))
+      ? (h.trim().charAt(0) === "#" ? h.trim() : "#" + h.trim())
+      : null;
+  }
+  function text(el, s) { if (el && el.textContent !== s) el.textContent = s; }
+
+  /* ---------------- canvas plumbing ---------------- */
+
+  function fillCanvasColour() {
+    ctx.fillStyle = state.canvasColour;
+    ctx.fillRect(0, 0, cv.width, cv.height);
+  }
+
+  function ensureSize(size) {
+    size = Math.max(1, size | 0);
+    if (state.size === size) return;
+    state.size = size;
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    var target = 768 * dpr;
+    state.scale = Math.max(1, Math.floor(target / size));
+    cv.width = size * state.scale;
+    cv.height = size * state.scale;
+    ctx.imageSmoothingEnabled = false;
+    ctx.mozImageSmoothingEnabled = false;
+    ctx.webkitImageSmoothingEnabled = false;
+    ctx.msImageSmoothingEnabled = false;
+    scratch.width = size;
+    scratch.height = size;
+    sctx.imageSmoothingEnabled = false;
+    fillCanvasColour();
+    if (state.lastGoodImg) blitImage(state.lastGoodImg);
+  }
+
+  function blitImage(img) {
+    ctx.imageSmoothingEnabled = false;
+    ctx.webkitImageSmoothingEnabled = false;
+    try {
+      ctx.drawImage(img, 0, 0, cv.width, cv.height);
+    } catch (e) { /* keep last good frame */ }
+  }
+
+  function blitScratch() {
+    ctx.imageSmoothingEnabled = false;
+    ctx.webkitImageSmoothingEnabled = false;
+    ctx.drawImage(scratch, 0, 0, scratch.width, scratch.height, 0, 0, cv.width, cv.height);
+  }
+
+  function loadFrame(version) {
+    var img = new Image();
+    img.decoding = "sync";
+    img.onload = function () {
+      if (!img.naturalWidth || !img.naturalHeight) return;   // partial / broken: keep last good
+      if (version < state.drawnVersion) return;              // out-of-order load
+      state.drawnVersion = version;
+      state.lastGoodImg = img;
+      if (state.replaying) return;                           // don't fight the replay
+      ensureSize(img.naturalWidth);
+      blitImage(img);
+    };
+    img.onerror = function () { /* harmless: keep the last good frame */ };
+    img.src = "live.png?v=" + encodeURIComponent(version);
+  }
+
+  /* ---------------- polling live.js ---------------- */
+
+  var pollTag = null;
+  var pollTimer = 0;
+
+  function dropTag(tag) {
+    if (tag && tag.parentNode) tag.parentNode.removeChild(tag);
+    if (pollTag === tag) pollTag = null;
+  }
+
+  function schedule() {
+    if (!state.polling) return;
+    clearTimeout(pollTimer);
+    pollTimer = setTimeout(poll, POLL_MS);
+  }
+
+  function poll() {
+    if (!state.polling) return;
+    if (pollTag) dropTag(pollTag);            // remove the previous tag
+    var tag = document.createElement("script");
+    pollTag = tag;
+    tag.async = true;
+    tag.onload = function () {
+      dropTag(tag);
+      try { onLive(window.__live); } catch (e) { /* never let a bad payload stop the loop */ }
+      schedule();
+    };
+    tag.onerror = function () {
+      dropTag(tag);
+      schedule();                              // harmless: file not there yet
+    };
+    tag.src = "live.js?t=" + Date.now();
+    (document.head || document.documentElement).appendChild(tag);
+  }
+
+  function onLive(d) {
+    if (!d || typeof d !== "object") return;
+    var v = Number(d.version);
+    if (!isFinite(v)) v = 0;
+
+    state.live = d;
+    if (!state.gotData) {
+      state.gotData = true;
+      $("waiting").hidden = true;
+    }
+
+    var cc = safeHex(d.canvas);
+    if (cc) state.canvasColour = cc;
+
+    var size = (d.size | 0) || state.size || 256;
+    ensureSize(size);
+
+    if (v !== state.version) {
+      state.version = v;
+      loadFrame(v);
+    }
+
+    state.elapsedBase = Number(d.elapsed) || 0;
+    state.elapsedAt = Date.now();
+
+    render(d);
+
+    if (d.finished && !state.finishedHandled) {
+      state.finishedHandled = true;
+      state.polling = false;
+      clearTimeout(pollTimer);
+      if (pollTag) dropTag(pollTag);
+      onFinished(d);
+    }
+  }
+
+  /* ---------------- rendering the instrumentation ---------------- */
+
+  var lastDecisionsKey = "";
+  var lastPaletteKey = "";
+
+  function render(d) {
+    if (d.title) {
+      text($("title"), String(d.title));
+      document.title = String(d.title) + " · at the easel";
+    }
+    var sz = d.size | 0;
+    text($("byline"), d.byline ? String(d.byline)
+      : (sz ? sz + " × " + sz + " pixels, " : "") + "decided one by one by Jev");
+
+    var mast = $("mast");
+    mast.classList.toggle("is-painting", !d.finished && !!state.gotData);
+    mast.classList.toggle("is-finished", !!d.finished);
+    text($("statusText"), d.finished ? "Finished" : "Painting");
+
+    text($("cost"), money4(d.cost));
+    text($("est"), (d.est_cost === null || d.est_cost === undefined)
+      ? "of est. —" : "of est. " + money2(d.est_cost));
+
+    var done = Number(d.pixels_painted) || 0;
+    var total = Number(d.pixels_total) || 0;
+    text($("pxDone"), num(done));
+    text($("pxTotal"), num(total));
+    var frac = total > 0 ? Math.max(0, Math.min(1, done / total)) : 0;
+    text($("pxPct"), pct(frac));
+    $("bar").style.width = (frac * 100).toFixed(2) + "%";
+    text($("chunks"), num(d.chunks_done || 0) + " / " + num(d.chunks_total || 0) + " batches");
+
+    text($("sAsk"), (d.questions === null || d.questions === undefined) ? "—" : num(d.questions));
+    text($("sReq"), num(d.requests || 0));
+    text($("sTok"), tokens(d.input_tokens));
+    tickElapsed();
+
+    var el = Number(d.elapsed) || 0;
+    text($("sRate"), el > 0.05 && done > 0 ? num(done / el) : "—");
+
+    if (d.composer) text($("decisionsLabel"), String(d.composer) + "\u2019s composition decisions");
+    renderDecisions(d.decisions);
+    renderPalette(d.palette);
+  }
+
+  function renderDecisions(list) {
+    var box = $("decisionsBox");
+    if (!list || !list.length) { box.hidden = true; lastDecisionsKey = ""; return; }
+    var key;
+    try { key = JSON.stringify(list); } catch (e) { key = String(list.length); }
+    if (key === lastDecisionsKey) { box.hidden = false; return; }
+    lastDecisionsKey = key;
+
+    var host = $("decisions");
+    host.textContent = "";
+    for (var i = 0; i < list.length; i++) {
+      var it = list[i] || {};
+      var wrap = document.createElement("div");
+      wrap.className = "decision";
+
+      var q = document.createElement("p");
+      q.className = "d-q";
+      q.textContent = String(it.question === undefined ? "" : it.question);
+      wrap.appendChild(q);
+
+      var a = document.createElement("p");
+      a.className = "d-a";
+      a.textContent = String(it.answer === undefined ? "" : it.answer);
+      wrap.appendChild(a);
+
+      var c = Number(it.confidence);
+      if (isFinite(c)) {
+        c = Math.max(0, Math.min(1, c));
+        var row = document.createElement("div");
+        row.className = "d-c";
+        var bar = document.createElement("div");
+        bar.className = "d-bar";
+        var fill = document.createElement("i");
+        fill.style.width = (c * 100).toFixed(1) + "%";
+        bar.appendChild(fill);
+        var n = document.createElement("span");
+        n.className = "d-num";
+        n.textContent = pct(c, 0) + " sure";
+        row.appendChild(bar);
+        row.appendChild(n);
+        wrap.appendChild(row);
+      }
+      host.appendChild(wrap);
+    }
+    box.hidden = false;
+  }
+
+  function renderPalette(list) {
+    var box = $("paletteBox");
+    if (!list || !list.length) { box.hidden = true; lastPaletteKey = ""; return; }
+    var key;
+    try { key = JSON.stringify(list); } catch (e) { key = String(list.length); }
+    if (key === lastPaletteKey) { box.hidden = false; return; }
+    lastPaletteKey = key;
+
+    var host = $("paints");
+    host.textContent = "";
+    for (var i = 0; i < list.length; i++) {
+      var p = list[i] || {};
+      var li = document.createElement("li");
+      li.className = "paint";
+      var chip = document.createElement("span");
+      chip.className = "chip";
+      var hex = safeHex(p.hex);
+      chip.style.background = hex || "transparent";
+      var nm = document.createElement("span");
+      nm.textContent = String(p.name === undefined ? (hex || "") : p.name);
+      nm.title = (p.name ? p.name + " " : "") + (hex || "");
+      li.appendChild(chip);
+      li.appendChild(nm);
+      host.appendChild(li);
+    }
+    box.hidden = false;
+  }
+
+  // Keep the elapsed readout alive between payloads.
+  function tickElapsed() {
+    if (state.replaying) return;
+    var e = state.elapsedBase;
+    if (state.live && !state.live.finished && state.elapsedAt) {
+      e += (Date.now() - state.elapsedAt) / 1000;
+    }
+    text($("sTime"), state.gotData ? clock(e) : "0:00");
+  }
+  setInterval(tickElapsed, 200);
+
+  /* ---------------- finished ---------------- */
+
+  function onFinished(d) {
+    $("finishBox").hidden = false;
+    text($("fCost"), money4(d.cost));
+    text($("fTime"), clock(d.elapsed));
+    if (d.accuracy === null || d.accuracy === undefined || !isFinite(Number(d.accuracy))) {
+      $("fAccWrap").hidden = true;
+    } else {
+      $("fAccWrap").hidden = false;
+      text($("fAcc"), pct(Number(d.accuracy)));
+    }
+    $("replayNote").hidden = false;
+    text($("replayNote"), "Looking for the replay…");
+    tryReplay(0);
+  }
+
+  function tryReplay(attempt) {
+    if (state.replay) return;
+    if (attempt >= REPLAY_TRIES) {
+      text($("replayNote"), "No replay was recorded for this painting.");
+      return;
+    }
+    var tag = document.createElement("script");
+    tag.async = true;
+    tag.onload = function () {
+      if (tag.parentNode) tag.parentNode.removeChild(tag);
+      var r = window.__replay;
+      if (r && r.events && r.events.length) {
+        state.replay = normaliseReplay(r);
+        $("replayNote").hidden = true;
+        $("replayRow").hidden = false;
+      } else {
+        setTimeout(function () { tryReplay(attempt + 1); }, REPLAY_RETRY_MS);
+      }
+    };
+    tag.onerror = function () {
+      if (tag.parentNode) tag.parentNode.removeChild(tag);
+      setTimeout(function () { tryReplay(attempt + 1); }, REPLAY_RETRY_MS);
+    };
+    tag.src = "replay.js?t=" + Date.now();
+    (document.head || document.documentElement).appendChild(tag);
+  }
+
+  function normaliseReplay(r) {
+    var size = (r.size | 0) || state.size || 256;
+    var evts = [];
+    for (var i = 0; i < r.events.length; i++) {
+      var e = r.events[i];
+      if (!e) continue;
+      evts.push({
+        t: Number(e.t) || 0,
+        cost: Number(e.cost),
+        requests: Number(e.requests),
+        questions: Number(e.questions),
+        start: e.start | 0,
+        colours: typeof e.colours === "string" ? e.colours : ""
+      });
+    }
+    evts.sort(function (a, b) { return a.t - b.t; });
+    return {
+      size: size,
+      canvas: safeHex(r.canvas) || state.canvasColour,
+      events: evts,
+      duration: evts.length ? evts[evts.length - 1].t : 0
+    };
+  }
+
+  /* ---------------- replay ---------------- */
+
+  var HEXVAL = (function () {
+    var t = new Int16Array(128);
+    for (var i = 0; i < 128; i++) t[i] = -1;
+    for (var d = 0; d <= 9; d++) t[48 + d] = d;
+    for (var a = 0; a < 6; a++) { t[97 + a] = 10 + a; t[65 + a] = 10 + a; }
+    return t;
+  })();
+
+  function hexPair(s, i) {
+    var a = HEXVAL[s.charCodeAt(i) & 127];
+    var b = HEXVAL[s.charCodeAt(i + 1) & 127];
+    if (a < 0 || b < 0) return -1;
+    return (a << 4) | b;
+  }
+
+  function makeImageData(w, h) {
+    try { return new ImageData(w, h); } catch (e) { /* older engines */ }
+    return sctx.createImageData(w, h);
+  }
+
+  var replayCtl = null;
+
+  function startReplay(speed) {
+    var R = state.replay;
+    if (!R || !R.events.length) return;
+    stopReplay(true);
+
+    var size = R.size;
+    ensureSize(size);
+
+    var data = makeImageData(size, size);
+    var px = data.data;
+    var base = safeHex(R.canvas) || CANVAS_DEFAULT;
+    var br = 0, bg = 0, bb = 0;
+    var m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(base);
+    if (m) { br = parseInt(m[1], 16); bg = parseInt(m[2], 16); bb = parseInt(m[3], 16); }
+    for (var i = 0; i < px.length; i += 4) { px[i] = br; px[i + 1] = bg; px[i + 2] = bb; px[i + 3] = 255; }
+    sctx.putImageData(data, 0, 0);
+    blitScratch();
+
+    var total = size * size;
+    var idx = 0, painted = 0;
+    var t0 = (window.performance && performance.now) ? performance.now() : Date.now();
+    var tail = 0.45;   // a beat of stillness at the end
+
+    state.replaying = true;
+    document.body.classList.add("replaying");
+    $("replayBtn").textContent = "Stop";
+    $("plate").hidden = false;
+    text($("plate"), "Replaying · " + speed + "×");
+    text($("sRate"), "—");
+
+    function frame(now) {
+      if (!state.replaying) return;
+      var elapsedReal = ((now || ((window.performance && performance.now) ? performance.now() : Date.now())) - t0) / 1000;
+      var clockT = elapsedReal * speed;
+      var dirty = false;
+      var last = null;
+
+      while (idx < R.events.length && R.events[idx].t <= clockT) {
+        var ev = R.events[idx++];
+        painted += applyEvent(ev, px, total);
+        last = ev;
+        dirty = true;
+      }
+
+      if (dirty) {
+        sctx.putImageData(data, 0, 0);
+        blitScratch();
+        if (last) {
+          if (isFinite(last.cost)) text($("cost"), money4(last.cost));
+          if (isFinite(last.requests)) text($("sReq"), num(last.requests));
+          if (isFinite(last.questions)) text($("sAsk"), num(last.questions));
+        }
+        text($("pxDone"), num(painted));
+        var frac = total > 0 ? Math.min(1, painted / total) : 0;
+        text($("pxPct"), pct(frac));
+        $("bar").style.width = (frac * 100).toFixed(2) + "%";
+        text($("chunks"), num(idx) + " / " + num(R.events.length) + " batches");
+      }
+
+      var shown = Math.min(clockT, R.duration);
+      text($("sTime"), clock(shown));
+      if (shown > 0.05 && painted > 0) text($("sRate"), num(painted / shown));
+
+      if (idx >= R.events.length && clockT >= R.duration + tail) {
+        finishReplay();
+        return;
+      }
+      state.rafId = requestAnimationFrame(frame);
+    }
+    state.rafId = requestAnimationFrame(frame);
+  }
+
+  function applyEvent(ev, px, total) {
+    var s = ev.colours;
+    var n = (s.length / 6) | 0;
+    var start = ev.start;
+    var written = 0;
+    for (var i = 0; i < n; i++) {
+      var p = start + i;
+      if (p < 0 || p >= total) continue;
+      var o = i * 6;
+      var r = hexPair(s, o), g = hexPair(s, o + 2), b = hexPair(s, o + 4);
+      if (r < 0 || g < 0 || b < 0) continue;
+      var q = p << 2;
+      px[q] = r; px[q + 1] = g; px[q + 2] = b; px[q + 3] = 255;
+      written++;
+    }
+    return written;
+  }
+
+  function stopReplay(silent) {
+    if (state.rafId) { cancelAnimationFrame(state.rafId); state.rafId = 0; }
+    if (!state.replaying) return;
+    state.replaying = false;
+    if (!silent) restoreFinal();
+  }
+
+  function finishReplay() {
+    state.rafId = 0;
+    state.replaying = false;
+    restoreFinal();
+  }
+
+  function restoreFinal() {
+    document.body.classList.remove("replaying");
+    $("replayBtn").textContent = "Replay the painting";
+    $("plate").hidden = true;
+    if (state.lastGoodImg) {
+      ensureSize(state.lastGoodImg.naturalWidth || state.size);
+      blitImage(state.lastGoodImg);
+    }
+    if (state.live) render(state.live);
+  }
+
+  /* ---------------- controls ---------------- */
+
+  $("replayBtn").addEventListener("click", function () {
+    if (state.replaying) stopReplay(false);
+    else startReplay(state.replaySpeed);
+  });
+
+  var speedBtns = document.querySelectorAll(".speeds button");
+  Array.prototype.forEach.call(speedBtns, function (b) {
+    b.addEventListener("click", function () {
+      state.replaySpeed = Number(b.getAttribute("data-speed")) || 1;
+      Array.prototype.forEach.call(speedBtns, function (o) {
+        o.setAttribute("aria-pressed", o === b ? "true" : "false");
+      });
+      if (state.replaying) startReplay(state.replaySpeed);
+    });
+  });
+
+  /* ---------------- boot ---------------- */
+
+  ensureSize(256);
+  fillCanvasColour();
+  poll();
+
+  // Small debug surface (also used by the offline test harness).
+  window.__viewer = {
+    startReplay: startReplay,
+    stopReplay: function () { stopReplay(false); },
+    replayReady: function () { return !!(state.replay && state.replay.events.length); },
+    state: function () { return state; }
+  };
+})();
+</script>
+</body>
+</html>

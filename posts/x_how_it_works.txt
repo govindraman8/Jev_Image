@@ -1,0 +1,11 @@
+=== SINGLE POST (attach videos/post1_jev_bob_ross_4x.mp4) ===
+
+An AI that can't write or draw just painted a Bob Ross landscape.
+
+Paint-by-numbers: my code makes the sheet, @typesafeai's Jev picks every paint.
+
+37,856 decisions. 35 seconds. 24 cents. Video at 4x.
+
+The trick: Jev only answers multiple-choice questions.
+
+cc @CompleteSkeptic

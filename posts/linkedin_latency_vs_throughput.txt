@@ -1,0 +1,30 @@
+Laya beats Jev on speed. That is true for one decision, and false for a thousand.
+
+I tested both this week. Laya is the open, local clone of TypeSafe's Jev decision model, and it runs on a laptop for free. I ran it three ways on my M3 Pro: PyTorch, MLX, and Core ML on the Neural Engine.
+
+One decision at a time, Laya wins:
+- Laya: 6 ms, no network, no bill.
+- Jev: 161 ms, because every call crosses the internet.
+
+That is why Laya wins the viral game races. Tetris and Snake ask one question at a time, so latency decides. But the game code does the thinking. One Tetris demo says so in its own source: "The model cannot count or compare, so the arithmetic happens here and it gets the conclusion in words." Snake demos write the answer into the options: "Safe. Best route to food." In every head-to-head I found where someone removed the network delay, Jev chose as well or better.
+
+Real work looks different. Sort a million emails. Score a lead list. Classify a dataset. That is bulk work.
+
+I ran 256 support emails with 6 questions each:
+- Jev: 746 decisions per second, every email sent to the right team.
+- Laya, fastest setup: 178 per second, 55% right.
+- Laya, most accurate setup: 69 per second, 82% right.
+
+The mechanism, measured. With 1 question per email, Jev sorted 99 emails a second and Laya 65. With 6 questions per email, Jev sorted 102 a second and Laya 11. Jev answers every question in one request at once. Laya re-reads the whole email for each question, so 6 questions cost 6 times as much.
+
+At those rates, 100,000 emails with 6 questions each take Jev about 15 minutes and about $2.60. Laya on my laptop takes about 2.4 hours, costs nothing, and gets 82% right. Free is real. So is the wait.
+
+None of this is hidden. Laya's own model card has an "Honest Limits" section. It says the base model is near chance on structured decisions without fine-tuning. The viral clips dropped that asterisk.
+
+So pick by the shape of the job:
+- One decision, right now, private data: run Laya locally.
+- Thousands of decisions, accurate, today: use Jev.
+
+Laya is great. It is just not magic.
+
+#AI #BuildInPublic #MachineLearning

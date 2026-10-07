@@ -1,0 +1,18 @@
+=== SINGLE POST (attach posts/media/post2_latency_vs_throughput.png) ===
+
+Why does Laya beat Jev at Snake? Game code does the thinking and hands it answers: "Safe. Best route to food."
+
+A latency race: 6 ms on my laptop vs 161 ms.
+
+On 1,536 bulk decisions, Jev was 4-11x faster and 100% right. Laya: 82%.
+
+Latency is not throughput. cc @CompleteSkeptic
+
+=== OPTIONAL REPLY (receipts; skip it if you want one post only) ===
+
+--- 2 ---
+Receipts. Laya's own model card lists these limits under "Honest Limits": https://github.com/NandhaKishorM/laya
+
+Snake demo options: https://github.com/mizorewww/laya-mlx
+
+Test: 256 synthetic emails x 6 questions, M3 Pro laptop vs Jev via OpenRouter, 24 Sep.

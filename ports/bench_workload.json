@@ -1,0 +1,5122 @@
+[
+ {
+  "state": {
+   "from": "user0@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user1@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user2@example.com",
+   "subject": "the app crashes when I open billing history",
+   "body": "Hi, the app crashes when I open billing history. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user3@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user4@example.com",
+   "subject": "my invoice #9924 shows the wrong amount",
+   "body": "Hi, my invoice #9924 shows the wrong amount. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user5@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user6@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user7@example.com",
+   "subject": "please refund my May payment",
+   "body": "Hi, please refund my May payment. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user8@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user9@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user10@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user11@example.com",
+   "subject": "sync has been stuck since May",
+   "body": "Hi, sync has been stuck since May. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user12@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user13@example.com",
+   "subject": "I was charged twice for June",
+   "body": "Hi, I was charged twice for June. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user14@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user15@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user16@example.com",
+   "subject": "can we get a quote for 3168 seats",
+   "body": "Hi, can we get a quote for 3168 seats. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user17@example.com",
+   "subject": "my invoice #7334 shows the wrong amount",
+   "body": "Hi, my invoice #7334 shows the wrong amount. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user18@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user19@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user20@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user21@example.com",
+   "subject": "login fails with error 3841",
+   "body": "Hi, login fails with error 3841. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user22@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user23@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user24@example.com",
+   "subject": "the export button does nothing in billing history",
+   "body": "Hi, the export button does nothing in billing history. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user25@example.com",
+   "subject": "the app crashes when I open billing history",
+   "body": "Hi, the app crashes when I open billing history. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user26@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user27@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user28@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user29@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user30@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user31@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user32@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user33@example.com",
+   "subject": "can we get a quote for 1372 seats",
+   "body": "Hi, can we get a quote for 1372 seats. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user34@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user35@example.com",
+   "subject": "I was charged twice for March",
+   "body": "Hi, I was charged twice for March. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user36@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user37@example.com",
+   "subject": "please refund my March payment",
+   "body": "Hi, please refund my March payment. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user38@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user39@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user40@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user41@example.com",
+   "subject": "the export button does nothing in billing history",
+   "body": "Hi, the export button does nothing in billing history. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user42@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user43@example.com",
+   "subject": "I was charged twice for May",
+   "body": "Hi, I was charged twice for May. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user44@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user45@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user46@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user47@example.com",
+   "subject": "my invoice #7551 shows the wrong amount",
+   "body": "Hi, my invoice #7551 shows the wrong amount. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user48@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user49@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user50@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user51@example.com",
+   "subject": "login fails with error 5764",
+   "body": "Hi, login fails with error 5764. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user52@example.com",
+   "subject": "the app crashes when I open reports",
+   "body": "Hi, the app crashes when I open reports. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user53@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user54@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user55@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user56@example.com",
+   "subject": "please refund my March payment",
+   "body": "Hi, please refund my March payment. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user57@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user58@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user59@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user60@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user61@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user62@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user63@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user64@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user65@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user66@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user67@example.com",
+   "subject": "the export button does nothing in reports",
+   "body": "Hi, the export button does nothing in reports. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user68@example.com",
+   "subject": "my invoice #3823 shows the wrong amount",
+   "body": "Hi, my invoice #3823 shows the wrong amount. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user69@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user70@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user71@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user72@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user73@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user74@example.com",
+   "subject": "my invoice #2271 shows the wrong amount",
+   "body": "Hi, my invoice #2271 shows the wrong amount. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user75@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user76@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user77@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user78@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user79@example.com",
+   "subject": "login fails with error 3440",
+   "body": "Hi, login fails with error 3440. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user80@example.com",
+   "subject": "can we get a quote for 2302 seats",
+   "body": "Hi, can we get a quote for 2302 seats. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user81@example.com",
+   "subject": "please refund my June payment",
+   "body": "Hi, please refund my June payment. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user82@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user83@example.com",
+   "subject": "the export button does nothing in the dashboard",
+   "body": "Hi, the export button does nothing in the dashboard. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user84@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user85@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user86@example.com",
+   "subject": "can we get a quote for 6745 seats",
+   "body": "Hi, can we get a quote for 6745 seats. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user87@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user88@example.com",
+   "subject": "please refund my May payment",
+   "body": "Hi, please refund my May payment. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user89@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user90@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user91@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user92@example.com",
+   "subject": "I was charged twice for March",
+   "body": "Hi, I was charged twice for March. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user93@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user94@example.com",
+   "subject": "please refund my May payment",
+   "body": "Hi, please refund my May payment. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user95@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user96@example.com",
+   "subject": "the export button does nothing in billing history",
+   "body": "Hi, the export button does nothing in billing history. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user97@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user98@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user99@example.com",
+   "subject": "can we get a quote for 4114 seats",
+   "body": "Hi, can we get a quote for 4114 seats. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user100@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user101@example.com",
+   "subject": "can we get a quote for 7137 seats",
+   "body": "Hi, can we get a quote for 7137 seats. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user102@example.com",
+   "subject": "the app crashes when I open reports",
+   "body": "Hi, the app crashes when I open reports. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user103@example.com",
+   "subject": "I was charged twice for June",
+   "body": "Hi, I was charged twice for June. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user104@example.com",
+   "subject": "please refund my April payment",
+   "body": "Hi, please refund my April payment. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user105@example.com",
+   "subject": "the export button does nothing in the dashboard",
+   "body": "Hi, the export button does nothing in the dashboard. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user106@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user107@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user108@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user109@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user110@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user111@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user112@example.com",
+   "subject": "sync has been stuck since June",
+   "body": "Hi, sync has been stuck since June. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user113@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user114@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user115@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user116@example.com",
+   "subject": "the export button does nothing in settings",
+   "body": "Hi, the export button does nothing in settings. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user117@example.com",
+   "subject": "can we get a quote for 7177 seats",
+   "body": "Hi, can we get a quote for 7177 seats. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user118@example.com",
+   "subject": "can we get a quote for 5181 seats",
+   "body": "Hi, can we get a quote for 5181 seats. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user119@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user120@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user121@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user122@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user123@example.com",
+   "subject": "please refund my June payment",
+   "body": "Hi, please refund my June payment. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user124@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user125@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user126@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user127@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user128@example.com",
+   "subject": "please refund my March payment",
+   "body": "Hi, please refund my March payment. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user129@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user130@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user131@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user132@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user133@example.com",
+   "subject": "I was charged twice for June",
+   "body": "Hi, I was charged twice for June. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user134@example.com",
+   "subject": "the export button does nothing in reports",
+   "body": "Hi, the export button does nothing in reports. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user135@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user136@example.com",
+   "subject": "can we get a quote for 2647 seats",
+   "body": "Hi, can we get a quote for 2647 seats. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user137@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user138@example.com",
+   "subject": "login fails with error 3661",
+   "body": "Hi, login fails with error 3661. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user139@example.com",
+   "subject": "the export button does nothing in billing history",
+   "body": "Hi, the export button does nothing in billing history. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user140@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user141@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user142@example.com",
+   "subject": "my invoice #6407 shows the wrong amount",
+   "body": "Hi, my invoice #6407 shows the wrong amount. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user143@example.com",
+   "subject": "the app crashes when I open billing history",
+   "body": "Hi, the app crashes when I open billing history. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user144@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user145@example.com",
+   "subject": "sync has been stuck since April",
+   "body": "Hi, sync has been stuck since April. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user146@example.com",
+   "subject": "the app crashes when I open reports",
+   "body": "Hi, the app crashes when I open reports. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user147@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user148@example.com",
+   "subject": "can we get a quote for 6931 seats",
+   "body": "Hi, can we get a quote for 6931 seats. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user149@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user150@example.com",
+   "subject": "sync has been stuck since May",
+   "body": "Hi, sync has been stuck since May. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user151@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user152@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user153@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user154@example.com",
+   "subject": "my invoice #4857 shows the wrong amount",
+   "body": "Hi, my invoice #4857 shows the wrong amount. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user155@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user156@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user157@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user158@example.com",
+   "subject": "my invoice #3047 shows the wrong amount",
+   "body": "Hi, my invoice #3047 shows the wrong amount. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user159@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user160@example.com",
+   "subject": "the app crashes when I open settings",
+   "body": "Hi, the app crashes when I open settings. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user161@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user162@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user163@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user164@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user165@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user166@example.com",
+   "subject": "sync has been stuck since April",
+   "body": "Hi, sync has been stuck since April. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user167@example.com",
+   "subject": "my invoice #2332 shows the wrong amount",
+   "body": "Hi, my invoice #2332 shows the wrong amount. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user168@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user169@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user170@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user171@example.com",
+   "subject": "please refund my May payment",
+   "body": "Hi, please refund my May payment. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user172@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user173@example.com",
+   "subject": "login fails with error 6352",
+   "body": "Hi, login fails with error 6352. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user174@example.com",
+   "subject": "the export button does nothing in reports",
+   "body": "Hi, the export button does nothing in reports. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user175@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user176@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user177@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user178@example.com",
+   "subject": "can you update my mailing address",
+   "body": "Hi, can you update my mailing address. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user179@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user180@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user181@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user182@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user183@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user184@example.com",
+   "subject": "the app crashes when I open billing history",
+   "body": "Hi, the app crashes when I open billing history. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user185@example.com",
+   "subject": "the export button does nothing in settings",
+   "body": "Hi, the export button does nothing in settings. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user186@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user187@example.com",
+   "subject": "can we get a quote for 2918 seats",
+   "body": "Hi, can we get a quote for 2918 seats. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user188@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user189@example.com",
+   "subject": "please refund my March payment",
+   "body": "Hi, please refund my March payment. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user190@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user191@example.com",
+   "subject": "can we get a quote for 5275 seats",
+   "body": "Hi, can we get a quote for 5275 seats. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user192@example.com",
+   "subject": "my invoice #8834 shows the wrong amount",
+   "body": "Hi, my invoice #8834 shows the wrong amount. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user193@example.com",
+   "subject": "I was charged twice for May",
+   "body": "Hi, I was charged twice for May. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user194@example.com",
+   "subject": "sync has been stuck since June",
+   "body": "Hi, sync has been stuck since June. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user195@example.com",
+   "subject": "sync has been stuck since March",
+   "body": "Hi, sync has been stuck since March. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user196@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user197@example.com",
+   "subject": "sync has been stuck since April",
+   "body": "Hi, sync has been stuck since April. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user198@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user199@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user200@example.com",
+   "subject": "my invoice #3205 shows the wrong amount",
+   "body": "Hi, my invoice #3205 shows the wrong amount. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user201@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user202@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user203@example.com",
+   "subject": "the app crashes when I open billing history",
+   "body": "Hi, the app crashes when I open billing history. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user204@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user205@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user206@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user207@example.com",
+   "subject": "my invoice #9482 shows the wrong amount",
+   "body": "Hi, my invoice #9482 shows the wrong amount. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user208@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user209@example.com",
+   "subject": "can we get a quote for 1972 seats",
+   "body": "Hi, can we get a quote for 1972 seats. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user210@example.com",
+   "subject": "the app crashes when I open settings",
+   "body": "Hi, the app crashes when I open settings. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user211@example.com",
+   "subject": "can I book a demo for my team next week",
+   "body": "Hi, can I book a demo for my team next week. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user212@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user213@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user214@example.com",
+   "subject": "the export button does nothing in billing history",
+   "body": "Hi, the export button does nothing in billing history. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user215@example.com",
+   "subject": "my invoice #8711 shows the wrong amount",
+   "body": "Hi, my invoice #8711 shows the wrong amount. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user216@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user217@example.com",
+   "subject": "why did my plan price go up this month",
+   "body": "Hi, why did my plan price go up this month. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user218@example.com",
+   "subject": "the export button does nothing in reports",
+   "body": "Hi, the export button does nothing in reports. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user219@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user220@example.com",
+   "subject": "please refund my April payment",
+   "body": "Hi, please refund my April payment. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user221@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user222@example.com",
+   "subject": "login fails with error 7967",
+   "body": "Hi, login fails with error 7967. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user223@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user224@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user225@example.com",
+   "subject": "I was charged twice for May",
+   "body": "Hi, I was charged twice for May. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user226@example.com",
+   "subject": "sync has been stuck since June",
+   "body": "Hi, sync has been stuck since June. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user227@example.com",
+   "subject": "please refund my March payment",
+   "body": "Hi, please refund my March payment. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user228@example.com",
+   "subject": "the app crashes when I open billing history",
+   "body": "Hi, the app crashes when I open billing history. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user229@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user230@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user231@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user232@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user233@example.com",
+   "subject": "is there an enterprise tier with SSO",
+   "body": "Hi, is there an enterprise tier with SSO. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user234@example.com",
+   "subject": "is the team hiring designers",
+   "body": "Hi, is the team hiring designers. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user235@example.com",
+   "subject": "please refund my May payment",
+   "body": "Hi, please refund my May payment. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user236@example.com",
+   "subject": "I was charged twice for June",
+   "body": "Hi, I was charged twice for June. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user237@example.com",
+   "subject": "my invoice #2100 shows the wrong amount",
+   "body": "Hi, my invoice #2100 shows the wrong amount. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user238@example.com",
+   "subject": "can we get a quote for 2062 seats",
+   "body": "Hi, can we get a quote for 2062 seats. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user239@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user240@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user241@example.com",
+   "subject": "sync has been stuck since April",
+   "body": "Hi, sync has been stuck since April. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user242@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user243@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user244@example.com",
+   "subject": "can we get a quote for 8219 seats",
+   "body": "Hi, can we get a quote for 8219 seats. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user245@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user246@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user247@example.com",
+   "subject": "please remove me from the newsletter",
+   "body": "Hi, please remove me from the newsletter. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user248@example.com",
+   "subject": "I was charged twice for June",
+   "body": "Hi, I was charged twice for June. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user249@example.com",
+   "subject": "the card on file was billed after I cancelled",
+   "body": "Hi, the card on file was billed after I cancelled. Thanks."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user250@example.com",
+   "subject": "notifications stopped arriving on Android",
+   "body": "Hi, notifications stopped arriving on Android. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "technical"
+ },
+ {
+  "state": {
+   "from": "user251@example.com",
+   "subject": "just wanted to say thanks for the help",
+   "body": "Hi, just wanted to say thanks for the help. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ },
+ {
+  "state": {
+   "from": "user252@example.com",
+   "subject": "do you offer an annual discount",
+   "body": "Hi, do you offer an annual discount. Cheers."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user253@example.com",
+   "subject": "my invoice #9080 shows the wrong amount",
+   "body": "Hi, my invoice #9080 shows the wrong amount. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "billing"
+ },
+ {
+  "state": {
+   "from": "user254@example.com",
+   "subject": "we want to upgrade to the team plan",
+   "body": "Hi, we want to upgrade to the team plan. Please help."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "sales"
+ },
+ {
+  "state": {
+   "from": "user255@example.com",
+   "subject": "where is your office located",
+   "body": "Hi, where is your office located. Let me know soon."
+  },
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which team should handle this email?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, errors",
+     "sales": "pricing, upgrades, new accounts",
+     "other": "everything else"
+    }
+   }
+  },
+  "label": "other"
+ }
+]

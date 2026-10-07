@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Studio</title>
+<style>
+  :root{
+    --bg:        #17130F;
+    --bg-soft:   #1E1913;
+    --line:      #2E2720;
+    --line-soft: #241E18;
+    --ink:       #EFE6D7;
+    --ink-2:     #AC9F8C;
+    --ink-3:     #7C7061;
+    --accent:    #D9A441;
+    --accent-dim:#8C6B2E;
+    --accent-bg: rgba(217,164,65,.10);
+    --good:      #8FA96C;
+    --warn:      #C9764B;
+    --canvasclr: #F4EFE4;
+
+    --wood-hi:   #7A5A3A;
+    --wood:      #543C26;
+    --wood-lo:   #3B2917;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+    --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  html{ background:var(--bg); -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    max-width:1260px;
+    margin:0 auto;
+    padding:34px 32px 72px;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+    padding-bottom:20px;
+    margin-bottom:26px;
+    border-bottom:1px solid var(--line);
+  }
+  .title{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:30px;
+    line-height:1.15;
+    letter-spacing:.005em;
+    margin:0 0 5px;
+    color:var(--ink);
+  }
+  .byline{
+    margin:0;
+    font-size:12.5px;
+    color:var(--ink-3);
+    letter-spacing:.03em;
+  }
+  .status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    padding-bottom:3px;
+    white-space:nowrap;
+  }
+  .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--ink-3);
+    box-shadow:0 0 0 0 rgba(217,164,65,.45);
+    flex:none;
+  }
+  .is-painting .dot{ background:var(--accent); animation:breathe 2.4s ease-in-out infinite; }
+  .is-idle .dot{ background:var(--good); }
+  .is-away .dot{ background:var(--warn); }
+  @keyframes breathe{
+    0%,100%{ box-shadow:0 0 0 0 rgba(217,164,65,.42); }
+    70%    { box-shadow:0 0 0 7px rgba(217,164,65,0); }
+  }
+
+  .about{
+    font-family:var(--serif);
+    font-size:15.5px;
+    font-style:italic;
+    line-height:1.5;
+    color:var(--ink-2);
+    margin:0 0 26px;
+    max-width:70ch;
+  }
+
+  /* ---------- labels & blocks ---------- */
+  .label{
+    font-size:10.5px;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    margin:0 0 10px;
+    font-weight:500;
+  }
+
+  section + section{ margin-top:38px; }
+
+  /* ---------- composer ---------- */
+  .composer{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(288px,340px);
+    gap:34px 44px;
+    align-items:start;
+  }
+  .desk{ min-width:0; }
+
+  #promptInput{
+    display:block;
+    width:100%;
+    min-height:132px;
+    resize:vertical;
+    background:var(--bg-soft);
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:14px 15px;
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.45;
+    letter-spacing:.005em;
+  }
+  #promptInput::placeholder{ color:var(--ink-3); font-style:italic; }
+  #promptInput:focus{ outline:none; border-color:var(--accent-dim); box-shadow:0 0 0 1px var(--accent-dim); }
+  #promptInput:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  .deskfoot{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:14px; flex-wrap:wrap; margin-top:9px;
+  }
+  .hint{ font-size:11.5px; color:var(--ink-3); margin:0; }
+  .hint kbd{
+    font-family:var(--mono); font-size:10.5px; color:var(--ink-2);
+    background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.1);
+    border-radius:3px; padding:1px 5px;
+  }
+  .count{
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3);
+    font-variant-numeric:tabular-nums; white-space:nowrap;
+  }
+  .count.is-low{ color:var(--accent); }
+
+  .controls{ min-width:0; }
+
+  fieldset{ border:0; margin:0; padding:0; min-width:0; }
+  legend{ padding:0; }
+
+  .sizes{ display:flex; flex-wrap:wrap; gap:7px; }
+  .sizes .opt{ position:relative; }
+  .sizes input{
+    position:absolute; opacity:0; width:100%; height:100%;
+    left:0; top:0; margin:0; cursor:pointer;
+  }
+  .sizes span{
+    display:block;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--ink-3);
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:3px;
+    padding:6px 11px;
+    white-space:nowrap;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .sizes input:hover + span{ background:rgba(255,255,255,.08); color:var(--ink-2); }
+  .sizes input:checked + span{
+    background:rgba(217,164,65,.16);
+    border-color:rgba(217,164,65,.42);
+    color:#F0D9A6;
+  }
+  .sizes input:focus-visible + span{ outline:2px solid var(--accent); outline-offset:2px; }
+  .sizes input:disabled + span{ opacity:.45; cursor:default; }
+
+  button{
+    font-family:inherit; font-size:12.5px; color:var(--ink);
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:3px; padding:6px 13px; cursor:pointer;
+    letter-spacing:.03em;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  button:hover{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.18); }
+  button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  button[disabled]{ cursor:not-allowed; opacity:.5; }
+  button[disabled]:hover{ background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.1); }
+
+  #paintBtn{
+    width:100%;
+    margin-top:20px;
+    background:rgba(217,164,65,.16);
+    border-color:rgba(217,164,65,.42);
+    color:#F0D9A6;
+    font-size:14px;
+    letter-spacing:.06em;
+    padding:11px 16px;
+  }
+  #paintBtn:hover:not([disabled]){ background:rgba(217,164,65,.26); border-color:rgba(217,164,65,.6); }
+  #paintBtn[disabled]{ background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); color:var(--ink-3); opacity:1; }
+
+  .reason{
+    margin:9px 0 0; font-size:11.5px; line-height:1.45; color:var(--ink-3);
+    min-height:1em;
+  }
+  .reason:empty{ display:none; }
+  .error{
+    margin:11px 0 0;
+    font-size:12.5px; line-height:1.45;
+    color:#E8B79A;
+    background:rgba(201,118,75,.10);
+    border:1px solid rgba(201,118,75,.3);
+    border-radius:4px;
+    padding:9px 11px;
+  }
+  .error:empty{ display:none; }
+  .conn{
+    margin:11px 0 0; font-size:12px; line-height:1.45; color:var(--ink-3);
+    border-left:2px solid var(--accent-dim); padding-left:10px;
+  }
+  .conn:empty{ display:none; }
+
+  .money{
+    margin:18px 0 0; padding-top:16px;
+    border-top:1px solid var(--line-soft);
+  }
+  .money p{
+    margin:0 0 9px; font-size:12px; line-height:1.5; color:var(--ink-2);
+  }
+  .money b{
+    font-family:var(--mono); font-weight:500; color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .bar{
+    height:5px; border-radius:3px;
+    background:rgba(255,255,255,.055);
+    overflow:hidden;
+  }
+  .bar > i{
+    display:block; height:100%; width:0%;
+    background:var(--accent);
+    border-radius:3px;
+    transition:width .3s ease;
+  }
+  .bar.is-full > i{ background:var(--warn); }
+
+  /* ---------- the frame ---------- */
+  .frame{
+    padding:22px;
+    border-radius:5px;
+    background:
+      linear-gradient(148deg, var(--wood-hi) 0%, var(--wood) 34%, var(--wood-lo) 66%, var(--wood) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255,236,204,.16),
+      inset 0 -1px 0 rgba(0,0,0,.45),
+      0 26px 52px -22px rgba(0,0,0,.85),
+      0 4px 14px -6px rgba(0,0,0,.6);
+  }
+  .mat{
+    position:relative;
+    background:var(--canvasclr);
+    border-radius:1px;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,.55),
+      inset 0 0 22px rgba(60,40,18,.16);
+    overflow:hidden;
+    line-height:0;
+  }
+
+  /* ---------- stage ---------- */
+  .stagehead{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:14px; flex-wrap:wrap; margin-bottom:12px;
+  }
+  .stagehead .label{ margin:0; }
+  .stagetools{ display:flex; gap:8px; flex-wrap:wrap; }
+  .stagetools a{
+    font-size:12px; color:var(--ink-3); text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,.14); padding-bottom:1px;
+  }
+  .stagetools a:hover{ color:var(--ink-2); border-color:rgba(255,255,255,.3); }
+  .stagetools a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  #stageIdle .frame{ max-width:430px; }
+  .easel{
+    height:clamp(170px, 24vh, 250px);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .empty-note{
+    font-family:var(--serif);
+    font-size:15px; font-style:italic;
+    line-height:1.5;
+    color:#9E9280;
+    letter-spacing:.02em;
+    text-align:center;
+    padding:24px;
+    max-width:36ch;
+  }
+
+  .viewerbox{
+    border:1px solid var(--line);
+    border-radius:5px;
+    background:var(--bg-soft);
+    overflow:hidden;
+    box-shadow:0 26px 52px -26px rgba(0,0,0,.8);
+  }
+  #viewerFrame{
+    display:block;
+    width:100%;
+    height:clamp(560px, 76vh, 900px);
+    border:0;
+    background:var(--bg);
+  }
+  .nowpainting{
+    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+    padding:11px 15px;
+    border-bottom:1px solid var(--line-soft);
+    background:rgba(255,255,255,.02);
+  }
+  .nowpainting .np-prompt{
+    font-family:var(--serif); font-size:14.5px; color:var(--ink);
+    margin:0; min-width:0; flex:1 1 260px;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .nowpainting .np-meta{
+    font-family:var(--mono); font-size:11px; color:var(--ink-3);
+    letter-spacing:.06em; white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- gallery ---------- */
+  .galhead{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:14px; flex-wrap:wrap; margin-bottom:16px;
+  }
+  .galhead .label{ margin:0; }
+  .galcount{
+    font-family:var(--mono); font-size:11px; color:var(--ink-3);
+    letter-spacing:.06em; font-variant-numeric:tabular-nums;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(192px, 1fr));
+    gap:26px 22px;
+    margin:0; padding:0; list-style:none;
+  }
+  .card{
+    display:block; width:100%; text-align:left;
+    background:transparent; border:0; border-radius:5px;
+    padding:0; cursor:pointer;
+    color:inherit; font:inherit; letter-spacing:normal;
+    transition:transform .18s ease;
+  }
+  .card:hover{ background:transparent; border:0; transform:translateY(-2px); }
+  .card:focus-visible{ outline:2px solid var(--accent); outline-offset:4px; }
+  .card .frame{
+    padding:9px;
+    border-radius:4px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,236,204,.14),
+      inset 0 -1px 0 rgba(0,0,0,.45),
+      0 12px 22px -14px rgba(0,0,0,.9);
+    transition:box-shadow .18s ease;
+  }
+  .card:hover .frame{ box-shadow:
+      inset 0 1px 0 rgba(255,236,204,.2),
+      inset 0 -1px 0 rgba(0,0,0,.45),
+      0 16px 28px -14px rgba(0,0,0,.95); }
+  .card .mat{ aspect-ratio:1 / 1; }
+  .card img{
+    display:block; width:100%; height:100%;
+    object-fit:cover;
+    image-rendering:-moz-crisp-edges;
+    image-rendering:-webkit-optimize-contrast;
+    image-rendering:crisp-edges;
+    image-rendering:pixelated;
+  }
+  .card .mat.is-blank img{ visibility:hidden; }
+  .card .mat.is-blank::after{
+    content:"not yet";
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-style:italic; font-size:12.5px;
+    color:#A39684;
+    line-height:1.4;
+  }
+  .card .pip{
+    position:absolute; left:7px; top:7px;
+    display:inline-flex; align-items:center; gap:5px;
+    font-family:var(--sans); font-size:9.5px; line-height:1;
+    letter-spacing:.14em; text-transform:uppercase;
+    color:#F0D9A6;
+    background:rgba(23,19,15,.82);
+    border:1px solid rgba(217,164,65,.4);
+    border-radius:3px;
+    padding:4px 7px;
+  }
+  .card .pip i{
+    width:5px; height:5px; border-radius:50%; background:var(--accent);
+    animation:breathe 2.4s ease-in-out infinite;
+  }
+  .card .cap{
+    font-family:var(--serif);
+    font-size:13.5px; line-height:1.35; color:var(--ink);
+    margin:11px 0 6px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+    line-clamp:2;
+    overflow:hidden;
+  }
+  .card .meta{
+    display:flex; flex-wrap:wrap; gap:3px 10px;
+    font-family:var(--mono); font-size:10.5px; color:var(--ink-3);
+    font-variant-numeric:tabular-nums; letter-spacing:.02em;
+  }
+  .card .meta .acc{ color:var(--ink-2); }
+
+  .emptybox{
+    border:1px dashed var(--line);
+    border-radius:5px;
+    padding:30px 26px;
+    background:rgba(255,255,255,.012);
+  }
+  .emptybox p{
+    font-family:var(--serif); font-size:15.5px; font-style:italic;
+    color:var(--ink-2); margin:0 0 18px; max-width:52ch; line-height:1.5;
+  }
+  .examples{ display:flex; flex-wrap:wrap; gap:9px; }
+  .examples button{
+    font-family:var(--serif); font-size:13.5px; font-style:italic;
+    color:var(--ink-2); padding:8px 13px; border-radius:3px;
+    letter-spacing:.01em;
+    text-align:left;
+  }
+  .examples button:hover{ color:var(--ink); }
+  .emptybox p.exhint{
+    font-family:var(--sans); font-style:normal; font-size:11.5px;
+    color:var(--ink-3); margin:16px 0 0; max-width:none;
+  }
+
+  [hidden]{ display:none !important; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1080px){
+    .composer{ grid-template-columns:minmax(0,1fr); gap:26px; }
+    .money{ margin-top:4px; }
+    #paintBtn{ margin-top:16px; }
+  }
+  @media (max-width:620px){
+    .page{ padding:22px 16px 52px; }
+    .masthead{ margin-bottom:18px; padding-bottom:15px; }
+    .title{ font-size:24px; }
+    .about{ font-size:14.5px; margin-bottom:22px; }
+    section + section{ margin-top:30px; }
+    .frame{ padding:13px; border-radius:4px; }
+    .card .frame{ padding:7px; }
+    .easel{ height:clamp(140px, 30vw, 200px); }
+    #promptInput{ font-size:16px; min-height:112px; }
+    #viewerFrame{ height:clamp(440px, 118vw, 720px); }
+    .grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:20px 14px; }
+    .emptybox{ padding:22px 18px; }
+    .examples{ flex-direction:column; align-items:stretch; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+    }
+    .card:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead is-away" id="mast">
+    <div>
+      <h1 class="title" id="studioTitle">The Studio</h1>
+      <p class="byline" id="studioTagline">a prompt in, a painting out &mdash; decided pixel by pixel by Jev</p>
+    </div>
+    <div class="status"><span class="dot" aria-hidden="true"></span><span id="statusText">Opening up</span></div>
+  </header>
+
+  <p class="about" id="aboutLine">Reading what this painter can and cannot paint&hellip;</p>
+
+  <section class="composer" aria-labelledby="composerLabel">
+    <h2 class="label" id="composerLabel" hidden>Composer</h2>
+
+    <form class="desk" id="composerForm" novalidate>
+      <label class="label" for="promptInput">What should Jev paint?</label>
+      <textarea id="promptInput" name="prompt" rows="4" maxlength="400"
+        placeholder="A quiet lake at dusk, pines on the far shore, one small cabin with a lit window&hellip;"
+        autocomplete="off" spellcheck="true"></textarea>
+      <div class="deskfoot">
+        <p class="hint" id="submitHint"><kbd>&#8984;</kbd> or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to paint</p>
+        <p class="count" id="charCount" aria-live="polite">400 characters left</p>
+      </div>
+    </form>
+
+    <div class="controls">
+      <fieldset id="sizeGroup" hidden>
+        <legend class="label">Canvas</legend>
+        <div class="sizes" id="sizeOptions"></div>
+      </fieldset>
+
+      <button type="submit" id="paintBtn" form="composerForm" disabled>Paint it</button>
+      <p class="reason" id="paintReason" aria-live="polite">Waiting for the studio&hellip;</p>
+      <p class="error" id="paintError" role="alert"></p>
+      <p class="conn" id="connLine" aria-live="polite"></p>
+
+      <div class="money">
+        <p id="limitsLine">Each painting is capped at <b>&mdash;</b>. Spent today: <b>&mdash;</b>.</p>
+        <div class="bar" id="spentBar"><i id="spentFill"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stage" aria-labelledby="stageLabel">
+    <div class="stagehead">
+      <h2 class="label" id="stageLabel">At the easel</h2>
+      <div class="stagetools" id="stageTools" hidden>
+        <a href="#" id="stageOpen" target="_blank" rel="noopener">Open in its own tab</a>
+      </div>
+    </div>
+
+    <div id="stageIdle">
+      <div class="frame">
+        <div class="mat easel">
+          <p class="empty-note" id="stageIdleNote">The easel is empty. Write a prompt above and Jev will mix the paint.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="viewerbox" id="stageLive" hidden>
+      <div class="nowpainting">
+        <p class="np-prompt" id="stagePrompt">&nbsp;</p>
+        <span class="np-meta" id="stageMeta"></span>
+      </div>
+      <iframe id="viewerFrame" title="The painting, live" src="about:blank"></iframe>
+    </div>
+  </section>
+
+  <section id="gallerySection" aria-labelledby="galleryLabel">
+    <div class="galhead">
+      <h2 class="label" id="galleryLabel">Paintings so far</h2>
+      <span class="galcount" id="galleryCount"></span>
+    </div>
+
+    <ul class="grid" id="galleryGrid" hidden></ul>
+
+    <div class="emptybox" id="galleryEmpty">
+      <p id="galleryEmptyNote">No paintings yet. Give Jev a scene and watch the canvas fill in, block by block.</p>
+      <div class="examples" id="galleryExamples">
+        <button type="button" id="example1">A quiet lake at dusk, pines on the far shore, one lit cabin window</button>
+        <button type="button" id="example2">Snow on a mountain ridge, cold blue shadows, a pale winter sun</button>
+        <button type="button" id="example3">A wheat field under a high summer sky, one crooked fence post</button>
+      </div>
+      <p class="exhint" id="exampleHint">These only fill the box. Nothing is painted until you press Paint it.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var STATUS_BUSY_MS = 1500;
+  var STATUS_IDLE_MS = 10000;
+  var RUNS_MS = 30000;
+  var SESSION_RETRY_MS = 5000;
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  var state = {
+    session: null,
+    token: null,
+    promptMax: 400,
+    sizes: [],
+    size: null,
+    status: null,
+    busy: false,
+    run: null,
+    spentToday: null,
+    dailyCap: null,
+    posting: false,
+    serverDown: false,
+    shown: null,          // { run, prompt, size, live }
+    runs: [],
+    runsById: {},
+    statusTimer: 0,
+    runsTimer: 0,
+    sessionTimer: 0,
+    galleryTick: 0
+  };
+
+  /* ---------------- formatting ---------------- */
+
+  function money2(n) {
+    if (n === null || n === undefined || !isFinite(Number(n))) return "$—";
+    return "$" + Number(n).toFixed(2);
+  }
+  function money4(n) {
+    if (n === null || n === undefined || !isFinite(Number(n))) return "—";
+    return "$" + Number(n).toFixed(4);
+  }
+  function pct1(x) {
+    if (x === null || x === undefined || !isFinite(Number(x))) return "—";
+    var v = Number(x);
+    if (v <= 1.0000001) v = v * 100;
+    return v.toFixed(1) + "%";
+  }
+  function sizeLabel(n) {
+    n = n | 0;
+    return n + " × " + n;
+  }
+  function text(el, s) { if (el && el.textContent !== s) el.textContent = s; }
+  function plural(n, one, many) { return n === 1 ? one : many; }
+
+  function when(iso) {
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return "";
+    try {
+      return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    } catch (e) { return ""; }
+  }
+
+  /* ---------------- fetch plumbing ---------------- */
+
+  function getJSON(path) {
+    return fetch(path, {
+      method: "GET",
+      headers: { "Accept": "application/json" },
+      credentials: "same-origin",
+      cache: "no-store"
+    }).then(function (r) {
+      return r.json().catch(function () { return null; }).then(function (body) {
+        if (!r.ok) {
+          var e = new Error((body && body.error) || ("The studio answered " + r.status + "."));
+          e.status = r.status;
+          e.body = body;
+          throw e;
+        }
+        return body;
+      });
+    });
+  }
+
+  function postJSON(path, payload) {
+    var headers = { "Content-Type": "application/json", "Accept": "application/json" };
+    if (state.token) headers["X-Studio-Token"] = state.token;
+    return fetch(path, {
+      method: "POST",
+      headers: headers,
+      credentials: "same-origin",
+      cache: "no-store",
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      return r.json().catch(function () { return null; }).then(function (body) {
+        if (!r.ok) {
+          var e = new Error((body && body.error) || ("The studio answered " + r.status + " and said nothing more."));
+          e.status = r.status;
+          e.body = body;
+          throw e;
+        }
+        return body;
+      });
+    });
+  }
+
+  function markUp() {
+    if (!state.serverDown) return;
+    state.serverDown = false;
+    text($("connLine"), "");
+    render();
+  }
+  function markDown() {
+    if (state.serverDown) return;
+    state.serverDown = true;
+    text($("connLine"), "The studio server is not answering. This page keeps listening — nothing was lost.");
+    render();
+  }
+
+  /* ---------------- session ---------------- */
+
+  function loadSession() {
+    clearTimeout(state.sessionTimer);
+    getJSON("/api/session").then(function (s) {
+      if (!s || typeof s !== "object") throw new Error("bad session");
+      markUp();
+      state.session = s;
+      state.token = typeof s.token === "string" ? s.token : null;
+      state.promptMax = (s.prompt_max | 0) > 0 ? (s.prompt_max | 0) : 400;
+      state.sizes = Array.isArray(s.sizes) ? s.sizes.filter(function (n) { return (n | 0) > 0; }) : [];
+      if (!state.sizes.length) state.sizes = [(s.default_size | 0) || 256];
+      var def = (s.default_size | 0);
+      state.size = state.sizes.indexOf(def) >= 0 ? def : state.sizes[0];
+      if (state.dailyCap === null && isFinite(Number(s.daily_cap))) state.dailyCap = Number(s.daily_cap);
+
+      var ta = $("promptInput");
+      ta.setAttribute("maxlength", String(state.promptMax));
+      if (ta.value.length > state.promptMax) ta.value = ta.value.slice(0, state.promptMax);
+
+      text($("aboutLine"), s.about ? String(s.about)
+        : "Jev paints small pixel landscapes — one prompt, one canvas at a time.");
+
+      buildSizes();
+      render();
+    }).catch(function () {
+      markDown();
+      render();
+      state.sessionTimer = setTimeout(loadSession, SESSION_RETRY_MS);
+    });
+  }
+
+  function buildSizes() {
+    var host = $("sizeOptions");
+    host.textContent = "";
+    $("sizeGroup").hidden = !state.sizes.length;
+    state.sizes.forEach(function (n) {
+      n = n | 0;
+      var wrap = document.createElement("label");
+      wrap.className = "opt";
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = "size";
+      input.id = "size-" + n;
+      input.value = String(n);
+      input.checked = (n === state.size);
+      input.addEventListener("change", function () {
+        if (input.checked) { state.size = n; render(); }
+      });
+      var span = document.createElement("span");
+      span.textContent = sizeLabel(n);
+      wrap.appendChild(input);
+      wrap.appendChild(span);
+      host.appendChild(wrap);
+    });
+  }
+
+  /* ---------------- status ---------------- */
+
+  function scheduleStatus(ms) {
+    clearTimeout(state.statusTimer);
+    state.statusTimer = setTimeout(pollStatus, ms);
+  }
+
+  function pollStatus() {
+    getJSON("/api/status").then(function (s) {
+      markUp();
+      if (!s || typeof s !== "object") { scheduleStatus(STATUS_IDLE_MS); return; }
+
+      var wasBusy = state.busy;
+      var wasRun = state.run;
+
+      state.status = s;
+      state.busy = !!s.busy;
+      state.run = s.run || null;
+      if (isFinite(Number(s.spent_today))) state.spentToday = Number(s.spent_today);
+      if (isFinite(Number(s.daily_cap))) state.dailyCap = Number(s.daily_cap);
+
+      // A painting is in progress: put it on the easel.
+      if (state.busy && state.run && (!state.shown || state.shown.run !== state.run)) {
+        showRun(state.run, null, null, true, false);
+      }
+      // A painting just finished: freshen the gallery and the shown caption.
+      if (wasBusy && !state.busy) {
+        loadRuns();
+      }
+      if (state.busy && state.run && wasRun !== state.run) {
+        loadRuns();
+      }
+
+      render();
+      scheduleStatus(state.busy ? STATUS_BUSY_MS : STATUS_IDLE_MS);
+    }).catch(function () {
+      markDown();
+      render();
+      scheduleStatus(state.busy ? STATUS_BUSY_MS : STATUS_IDLE_MS);
+    });
+  }
+
+  /* ---------------- runs / gallery ---------------- */
+
+  function scheduleRuns() {
+    clearTimeout(state.runsTimer);
+    state.runsTimer = setTimeout(loadRuns, RUNS_MS);
+  }
+
+  function loadRuns() {
+    clearTimeout(state.runsTimer);
+    getJSON("/api/runs").then(function (d) {
+      markUp();
+      var runs = (d && Array.isArray(d.runs)) ? d.runs : [];
+      state.runs = runs;
+      state.runsById = {};
+      runs.forEach(function (r) { if (r && r.run) state.runsById[r.run] = r; });
+      state.galleryTick++;
+      renderGallery();
+      // the caption may now know the prompt of the running piece
+      if (state.shown && state.runsById[state.shown.run]) {
+        var r = state.runsById[state.shown.run];
+        if (!state.shown.prompt && r.prompt) state.shown.prompt = r.prompt;
+        if (!state.shown.size && r.size) state.shown.size = r.size;
+        renderStageCaption();
+      }
+      scheduleRuns();
+    }).catch(function () {
+      markDown();
+      scheduleRuns();
+    });
+  }
+
+  function thumbSrc(r) {
+    if (!r || !r.run) return null;
+    if (r.finished && r.image) return r.image;
+    if (!r.finished) return "/runs/" + encodeURIComponent(r.run) + "/live.png?v=" + state.galleryTick;
+    return r.image || null;
+  }
+
+  function renderGallery() {
+    var grid = $("galleryGrid");
+    var empty = $("galleryEmpty");
+    var runs = state.runs;
+
+    if (!runs.length) {
+      grid.hidden = true;
+      grid.textContent = "";
+      empty.hidden = false;
+      text($("galleryCount"), "");
+      return;
+    }
+
+    empty.hidden = true;
+    grid.hidden = false;
+    grid.textContent = "";
+    text($("galleryCount"), runs.length + " " + plural(runs.length, "painting", "paintings"));
+
+    runs.forEach(function (r) {
+      if (!r || !r.run) return;
+      var li = document.createElement("li");
+
+      var card = document.createElement("button");
+      card.type = "button";
+      card.className = "card";
+      card.id = "card-" + r.run;
+      var promptText = r.prompt ? String(r.prompt) : "(no prompt recorded)";
+      card.title = promptText;
+      card.setAttribute("aria-label", "Open the painting for: " + promptText);
+
+      var frame = document.createElement("div");
+      frame.className = "frame";
+      var mat = document.createElement("div");
+      mat.className = "mat";
+
+      var img = document.createElement("img");
+      img.alt = promptText;
+      img.loading = "lazy";
+      img.decoding = "async";
+      var src = thumbSrc(r);
+      if (src) {
+        img.src = src;
+        img.addEventListener("error", function () { mat.classList.add("is-blank"); });
+      } else {
+        mat.classList.add("is-blank");
+      }
+      mat.appendChild(img);
+
+      if (!r.finished) {
+        var pip = document.createElement("span");
+        pip.className = "pip";
+        var i = document.createElement("i");
+        pip.appendChild(i);
+        pip.appendChild(document.createTextNode("painting"));
+        mat.appendChild(pip);
+      }
+
+      frame.appendChild(mat);
+      card.appendChild(frame);
+
+      var cap = document.createElement("p");
+      cap.className = "cap";
+      cap.textContent = promptText;
+      card.appendChild(cap);
+
+      var meta = document.createElement("div");
+      meta.className = "meta";
+      var bits = [];
+      if (r.size) bits.push(sizeLabel(r.size));
+      bits.push(r.cost === null || r.cost === undefined ? "—" : money4(r.cost));
+      meta.appendChild(spanOf(bits.join("  ·  ")));
+      if (r.accuracy !== null && r.accuracy !== undefined && isFinite(Number(r.accuracy))) {
+        meta.appendChild(spanOf(pct1(r.accuracy), "acc"));
+      }
+      var w = when(r.created);
+      if (w) {
+        var t = document.createElement("time");
+        t.textContent = w;
+        t.dateTime = String(r.created);
+        t.title = String(r.created);
+        meta.appendChild(t);
+      }
+      card.appendChild(meta);
+
+      card.addEventListener("click", function () {
+        showRun(r.run, r.prompt, r.size, !r.finished, true);
+      });
+
+      li.appendChild(card);
+      grid.appendChild(li);
+    });
+  }
+
+  function spanOf(s, cls) {
+    var el = document.createElement("span");
+    if (cls) el.className = cls;
+    el.textContent = s;
+    return el;
+  }
+
+  /* ---------------- the easel ---------------- */
+
+  function viewerUrl(run) {
+    return "/runs/" + encodeURIComponent(run) + "/index.html";
+  }
+
+  function showRun(run, prompt, size, live, scroll) {
+    if (!run) return;
+    var known = state.runsById[run];
+    var url = (known && known.viewer) ? known.viewer : viewerUrl(run);
+    var same = state.shown && state.shown.run === run;
+
+    state.shown = {
+      run: run,
+      prompt: prompt || (known && known.prompt) || "",
+      size: size || (known && known.size) || null,
+      live: !!live
+    };
+
+    $("stageIdle").hidden = true;
+    $("stageLive").hidden = false;
+    $("stageTools").hidden = false;
+    $("stageOpen").href = url;
+
+    var fr = $("viewerFrame");
+    if (!same || fr.getAttribute("src") !== url) fr.setAttribute("src", url);
+
+    renderStageCaption();
+
+    if (scroll) {
+      try {
+        var behave = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto" : "smooth";
+        $("stage").scrollIntoView({ behavior: behave, block: "start" });
+      } catch (e) {
+        $("stage").scrollIntoView();
+      }
+    }
+  }
+
+  function renderStageCaption() {
+    if (!state.shown) return;
+    var s = state.shown;
+    text($("stagePrompt"), s.prompt || "A painting by Jev");
+    var bits = [];
+    if (s.size) bits.push(sizeLabel(s.size));
+    var known = state.runsById[s.run];
+    var painting = state.busy && state.run === s.run;
+    bits.push(painting ? "painting now" : (known && known.finished ? "finished" : "at the easel"));
+    text($("stageMeta"), bits.join("  ·  "));
+    text($("stageLabel"), painting ? "At the easel" : "Looking at");
+  }
+
+  /* ---------------- the gate on the money ---------------- */
+
+  function promptText() { return $("promptInput").value.trim(); }
+
+  function capReached() {
+    return state.spentToday !== null && state.dailyCap !== null
+      && state.dailyCap > 0 && state.spentToday >= state.dailyCap - 1e-9;
+  }
+
+  function blockReason() {
+    if (!state.token) {
+      return state.serverDown
+        ? "Nothing can be painted until the studio answers."
+        : "Still shaking hands with the studio…";
+    }
+    if (state.posting) return "Asking Jev to start…";
+    if (state.busy) return "A painting is already at the easel. Paint opens up when it is finished.";
+    if (capReached()) {
+      return "Today's cap of " + money2(state.dailyCap) + " has been spent. Painting reopens tomorrow.";
+    }
+    if (!promptText()) return "Write a prompt and Paint wakes up.";
+    if (!state.size) return "Pick a canvas size.";
+    return null;
+  }
+
+  function canPaint() { return blockReason() === null; }
+
+  /* ---------------- render ---------------- */
+
+  function render() {
+    var reason = blockReason();
+    var btn = $("paintBtn");
+    btn.disabled = reason !== null;
+    text($("paintReason"), reason || "");
+    btn.textContent = state.posting ? "Sending…" : "Paint it";
+
+    var mast = $("mast");
+    mast.classList.toggle("is-painting", state.busy);
+    mast.classList.toggle("is-idle", !state.busy && !state.serverDown && !!state.token);
+    mast.classList.toggle("is-away", state.serverDown || !state.token);
+    text($("statusText"),
+      state.serverDown ? "Out of reach" :
+      state.busy ? "Painting" :
+      state.token ? "Ready" : "Opening up");
+
+    // characters left
+    var used = $("promptInput").value.length;
+    var left = Math.max(0, state.promptMax - used);
+    var cc = $("charCount");
+    text(cc, left + " " + plural(left, "character", "characters") + " left");
+    cc.classList.toggle("is-low", left <= Math.max(20, Math.round(state.promptMax * 0.1)));
+
+    // money
+    var cap = state.session && isFinite(Number(state.session.max_cost)) ? Number(state.session.max_cost) : null;
+    var line = $("limitsLine");
+    line.textContent = "";
+    line.appendChild(document.createTextNode("Each painting is capped at "));
+    line.appendChild(bOf(cap === null ? "—" : money2(cap)));
+    line.appendChild(document.createTextNode(". Spent today: "));
+    line.appendChild(bOf(state.spentToday === null ? "—" : money2(state.spentToday)));
+    line.appendChild(document.createTextNode(" of "));
+    line.appendChild(bOf(state.dailyCap === null ? "—" : money2(state.dailyCap)));
+    line.appendChild(document.createTextNode("."));
+
+    var frac = 0;
+    if (state.spentToday !== null && state.dailyCap) {
+      frac = Math.max(0, Math.min(1, state.spentToday / state.dailyCap));
+    }
+    $("spentFill").style.width = (frac * 100).toFixed(2) + "%";
+    $("spentBar").classList.toggle("is-full", capReached());
+
+    renderStageCaption();
+  }
+
+  function bOf(s) {
+    var b = document.createElement("b");
+    b.textContent = s;
+    return b;
+  }
+
+  /* ---------------- painting ---------------- */
+
+  function paint() {
+    if (!canPaint()) return;
+    var prompt = promptText();
+    var size = state.size;
+
+    state.posting = true;
+    text($("paintError"), "");
+    render();
+
+    postJSON("/api/paint", { prompt: prompt, size: size }).then(function (d) {
+      markUp();
+      state.posting = false;
+      if (d && d.run) {
+        state.busy = true;              // believed until the next status poll confirms
+        state.run = d.run;
+        state.runsById[d.run] = state.runsById[d.run] || {
+          run: d.run, prompt: prompt, size: size, finished: false, viewer: d.viewer
+        };
+        showRun(d.run, prompt, size, true, true);
+        loadRuns();
+      }
+      render();
+      scheduleStatus(600);              // look in on it shortly, then settle into 1.5s
+    }).catch(function (e) {
+      state.posting = false;
+      // The server's own sentence, verbatim. No retry, ever.
+      if (e && typeof e.status === "number") {
+        markUp();
+        text($("paintError"), e.message);
+      } else {
+        markDown();
+        text($("paintError"), "The studio server did not answer, so nothing was started.");
+      }
+      render();
+      scheduleStatus(600);
+    });
+  }
+
+  /* ---------------- wiring ---------------- */
+
+  $("composerForm").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    paint();
+  });
+
+  $("promptInput").addEventListener("input", function () {
+    var ta = $("promptInput");
+    if (ta.value.length > state.promptMax) ta.value = ta.value.slice(0, state.promptMax);
+    if ($("paintError").textContent) text($("paintError"), "");
+    render();
+  });
+
+  $("promptInput").addEventListener("keydown", function (ev) {
+    if ((ev.metaKey || ev.ctrlKey) && (ev.key === "Enter" || ev.keyCode === 13)) {
+      ev.preventDefault();
+      paint();
+    }
+  });
+
+  ["example1", "example2", "example3"].forEach(function (id) {
+    var b = $(id);
+    if (!b) return;
+    b.addEventListener("click", function () {
+      var ta = $("promptInput");
+      ta.value = b.textContent.trim().slice(0, state.promptMax);
+      text($("paintError"), "");
+      render();
+      ta.focus();
+      try { ta.setSelectionRange(ta.value.length, ta.value.length); } catch (e) {}
+    });
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) { scheduleStatus(200); }
+  });
+
+  /* ---------------- boot ---------------- */
+
+  render();
+  loadSession();
+  pollStatus();
+  loadRuns();
+
+  // Small debug surface, same spirit as the viewer's.
+  window.__studio = {
+    state: function () { return state; },
+    reason: blockReason,
+    refreshRuns: loadRuns,
+    showRun: showRun
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+[
+ {
+  "state": {
+   "from": "user@acme.com",
+   "subject": "Duplicate charge on invoice #4411",
+   "body": "Hi, we were billed twice for March. Please refund the duplicate today or we will cancel our plan."
+  },
+  "questions": {
+   "department": {
+    "type": "choice",
+    "instructions": "Which department should handle this request?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, system errors",
+     "sales": "pricing, new contracts",
+     "other": "everything else"
+    }
+   },
+   "urgency": {
+    "type": "score",
+    "instructions": "How urgent is this request?",
+    "criteria": [
+     "not urgent",
+     "soon",
+     "critical deadline or blocking issue"
+    ]
+   },
+   "churn_risk": {
+    "type": "noul",
+    "instructions": "Does the user threaten to cancel or leave?"
+   }
+  }
+ },
+ {
+  "state": "The app crashes every time I open settings on my phone.",
+  "questions": {
+   "dept": {
+    "type": "choice",
+    "instructions": "Which department should handle this?",
+    "criteria": {
+     "billing": "invoices, payments, refunds",
+     "technical": "bugs, outages, system errors",
+     "other": "everything else"
+    }
+   }
+  }
+ },
+ {
+  "state": "I absolutely loved this movie, the acting was wonderful.",
+  "questions": {
+   "sentiment": {
+    "type": "choice",
+    "instructions": "Is this review positive?",
+    "criteria": {
+     "A": "yes, the review is positive",
+     "B": "no, the review is negative"
+    }
+   }
+  }
+ },
+ {
+  "state": {
+   "board": "Snake head at (4,5) moving right. Food at (4,9). Wall at column 10. No body cells to the right."
+  },
+  "questions": {
+   "move": {
+    "type": "choice",
+    "instructions": "Which way should the snake move next to reach the food safely?",
+    "criteria": {
+     "up": "move up",
+     "down": "move down",
+     "left": "move left",
+     "right": "move right"
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 26 to 44: Sky Blue; columns 45 to 46: Horizon Glow; columns 47 to 52: Cadmium Yellow.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 40?",
+    "criteria": {
+     "Sky Blue": null,
+     "Horizon Glow": null,
+     "Cadmium Yellow": null
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 8 to 8: Pale Sky; columns 9 to 21: Mountain Shadow; columns 22 to 32: Mountain Grey.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 20?",
+    "criteria": {
+     "Pale Sky": null,
+     "Mountain Shadow": null,
+     "Mountain Grey": null
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 0 to 0: Horizon Glow; columns 1 to 1: Mountain Shadow; columns 2 to 5: Phthalo Green; columns 6 to 7: Sap Green; columns 8 to 20: Mountain Shadow.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 8?",
+    "criteria": {
+     "Horizon Glow": null,
+     "Mountain Shadow": null,
+     "Phthalo Green": null,
+     "Sap Green": null
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 37 to 41: Phthalo Green; columns 42 to 44: Deep Water; columns 45 to 49: Phthalo Green; columns 50 to 52: Deep Water; columns 53 to 60: Phthalo Green; columns 61 to 62: Sap Green.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 50?",
+    "criteria": {
+     "Phthalo Green": null,
+     "Deep Water": null,
+     "Sap Green": null
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 10 to 20: Deep Water; columns 21 to 25: Phthalo Green; columns 26 to 26: Sap Green; columns 27 to 27: Phthalo Green; columns 28 to 33: Deep Water; columns 34 to 34: Lake Blue; columns 35 to 40: Phthalo Green; columns 41 to 43: Sap Green.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 30?",
+    "criteria": {
+     "Deep Water": null,
+     "Phthalo Green": null,
+     "Sap Green": null,
+     "Lake Blue": null
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 0 to 17: Van Dyke Brown; columns 18 to 26: Sap Green.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 12?",
+    "criteria": {
+     "Van Dyke Brown": null,
+     "Sap Green": null,
+     "Lake Blue": null
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 0 to 6: Van Dyke Brown; columns 7 to 11: Dark Sienna; columns 12 to 19: Van Dyke Brown.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 5?",
+    "criteria": {
+     "Van Dyke Brown": null,
+     "Dark Sienna": null,
+     "Sap Green": null
+    }
+   }
+  }
+ },
+ {
+  "state": "columns 28 to 48: Pale Sky; columns 49 to 56: Sky Blue; columns 57 to 60: Phthalo Green.",
+  "questions": {
+   "paint": {
+    "type": "choice",
+    "instructions": "Which paint covers column 45?",
+    "criteria": {
+     "Pale Sky": null,
+     "Sky Blue": null,
+     "Phthalo Green": null
+    }
+   }
+  }
+ }
+]

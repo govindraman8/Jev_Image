@@ -1,0 +1,384 @@
+{
+ "same": 14,
+ "total": 14,
+ "max_abs_prob_diff": 0.0029,
+ "rows": [
+  {
+   "request": 0,
+   "question": "department",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0001,
+   "coreml": {
+    "type": "choice",
+    "choice": "billing",
+    "probabilities": {
+     "billing": 0.8037,
+     "technical": 0.0677,
+     "sales": 0.0608,
+     "other": 0.0678
+    },
+    "confidence": 0.4874
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "billing",
+    "probabilities": {
+     "billing": 0.8038,
+     "technical": 0.0676,
+     "sales": 0.0607,
+     "other": 0.0678
+    },
+    "confidence": 0.4875
+   }
+  },
+  {
+   "request": 0,
+   "question": "urgency",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0003,
+   "coreml": {
+    "type": "score",
+    "score": 1.6375,
+    "legend": {
+     "0": "not urgent",
+     "1": "soon",
+     "2": "critical deadline or blocking issue"
+    },
+    "probabilities": {
+     "0": 0.0441,
+     "1": 0.2742,
+     "2": 0.6817
+    },
+    "confidence": 0.3139
+   },
+   "reference": {
+    "type": "score",
+    "score": 1.6375,
+    "legend": {
+     "0": "not urgent",
+     "1": "soon",
+     "2": "critical deadline or blocking issue"
+    },
+    "probabilities": {
+     "0": 0.044,
+     "1": 0.2745,
+     "2": 0.6815
+    },
+    "confidence": 0.314
+   }
+  },
+  {
+   "request": 0,
+   "question": "churn_risk",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0013,
+   "coreml": {
+    "type": "noul",
+    "noul": 0.705
+   },
+   "reference": {
+    "type": "noul",
+    "noul": 0.7063
+   }
+  },
+  {
+   "request": 1,
+   "question": "dept",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0012,
+   "coreml": {
+    "type": "choice",
+    "choice": "technical",
+    "probabilities": {
+     "billing": 0.061,
+     "technical": 0.76,
+     "other": 0.179
+    },
+    "confidence": 0.3745
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "technical",
+    "probabilities": {
+     "billing": 0.0614,
+     "technical": 0.7588,
+     "other": 0.1798
+    },
+    "confidence": 0.3725
+   }
+  },
+  {
+   "request": 2,
+   "question": "sentiment",
+   "same_option": true,
+   "max_abs_prob_diff": 0.001,
+   "coreml": {
+    "type": "choice",
+    "choice": "A",
+    "probabilities": {
+     "A": 0.7858,
+     "B": 0.2142
+    },
+    "confidence": 0.2505
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "A",
+    "probabilities": {
+     "A": 0.7868,
+     "B": 0.2132
+    },
+    "confidence": 0.2525
+   }
+  },
+  {
+   "request": 3,
+   "question": "move",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0023,
+   "coreml": {
+    "type": "choice",
+    "choice": "right",
+    "probabilities": {
+     "up": 0.1159,
+     "down": 0.111,
+     "left": 0.1729,
+     "right": 0.6002
+    },
+    "confidence": 0.2039
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "right",
+    "probabilities": {
+     "up": 0.1154,
+     "down": 0.1102,
+     "left": 0.1719,
+     "right": 0.6025
+    },
+    "confidence": 0.2064
+   }
+  },
+  {
+   "request": 4,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0005,
+   "coreml": {
+    "type": "choice",
+    "choice": "Sky Blue",
+    "probabilities": {
+     "Sky Blue": 0.4141,
+     "Horizon Glow": 0.2954,
+     "Cadmium Yellow": 0.2906
+    },
+    "confidence": 0.0129
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Sky Blue",
+    "probabilities": {
+     "Sky Blue": 0.4137,
+     "Horizon Glow": 0.2952,
+     "Cadmium Yellow": 0.2911
+    },
+    "confidence": 0.0128
+   }
+  },
+  {
+   "request": 5,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0008,
+   "coreml": {
+    "type": "choice",
+    "choice": "Mountain Shadow",
+    "probabilities": {
+     "Pale Sky": 0.1985,
+     "Mountain Shadow": 0.4866,
+     "Mountain Grey": 0.315
+    },
+    "confidence": 0.0576
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Mountain Shadow",
+    "probabilities": {
+     "Pale Sky": 0.1993,
+     "Mountain Shadow": 0.4863,
+     "Mountain Grey": 0.3144
+    },
+    "confidence": 0.0572
+   }
+  },
+  {
+   "request": 6,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0016,
+   "coreml": {
+    "type": "choice",
+    "choice": "Mountain Shadow",
+    "probabilities": {
+     "Horizon Glow": 0.0972,
+     "Mountain Shadow": 0.718,
+     "Phthalo Green": 0.0543,
+     "Sap Green": 0.1305
+    },
+    "confidence": 0.3592
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Mountain Shadow",
+    "probabilities": {
+     "Horizon Glow": 0.0962,
+     "Mountain Shadow": 0.7196,
+     "Phthalo Green": 0.0537,
+     "Sap Green": 0.1305
+    },
+    "confidence": 0.3618
+   }
+  },
+  {
+   "request": 7,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0029,
+   "coreml": {
+    "type": "choice",
+    "choice": "Deep Water",
+    "probabilities": {
+     "Phthalo Green": 0.3248,
+     "Deep Water": 0.4049,
+     "Sap Green": 0.2703
+    },
+    "confidence": 0.0124
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Deep Water",
+    "probabilities": {
+     "Phthalo Green": 0.3251,
+     "Deep Water": 0.4074,
+     "Sap Green": 0.2674
+    },
+    "confidence": 0.0135
+   }
+  },
+  {
+   "request": 8,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0011,
+   "coreml": {
+    "type": "choice",
+    "choice": "Sap Green",
+    "probabilities": {
+     "Deep Water": 0.2586,
+     "Phthalo Green": 0.2184,
+     "Sap Green": 0.267,
+     "Lake Blue": 0.256
+    },
+    "confidence": 0.0021
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Sap Green",
+    "probabilities": {
+     "Deep Water": 0.2593,
+     "Phthalo Green": 0.2173,
+     "Sap Green": 0.2678,
+     "Lake Blue": 0.2556
+    },
+    "confidence": 0.0022
+   }
+  },
+  {
+   "request": 9,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0008,
+   "coreml": {
+    "type": "choice",
+    "choice": "Van Dyke Brown",
+    "probabilities": {
+     "Van Dyke Brown": 0.5229,
+     "Sap Green": 0.4047,
+     "Lake Blue": 0.0725
+    },
+    "confidence": 0.185
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Van Dyke Brown",
+    "probabilities": {
+     "Van Dyke Brown": 0.5237,
+     "Sap Green": 0.404,
+     "Lake Blue": 0.0724
+    },
+    "confidence": 0.1854
+   }
+  },
+  {
+   "request": 10,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0009,
+   "coreml": {
+    "type": "choice",
+    "choice": "Van Dyke Brown",
+    "probabilities": {
+     "Van Dyke Brown": 0.6921,
+     "Dark Sienna": 0.2353,
+     "Sap Green": 0.0726
+    },
+    "confidence": 0.285
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Van Dyke Brown",
+    "probabilities": {
+     "Van Dyke Brown": 0.693,
+     "Dark Sienna": 0.2351,
+     "Sap Green": 0.072
+    },
+    "confidence": 0.2865
+   }
+  },
+  {
+   "request": 11,
+   "question": "paint",
+   "same_option": true,
+   "max_abs_prob_diff": 0.0012,
+   "coreml": {
+    "type": "choice",
+    "choice": "Sky Blue",
+    "probabilities": {
+     "Pale Sky": 0.2347,
+     "Sky Blue": 0.5645,
+     "Phthalo Green": 0.2008
+    },
+    "confidence": 0.1031
+   },
+   "reference": {
+    "type": "choice",
+    "choice": "Sky Blue",
+    "probabilities": {
+     "Pale Sky": 0.2349,
+     "Sky Blue": 0.5633,
+     "Phthalo Green": 0.2018
+    },
+    "confidence": 0.102
+   }
+  }
+ ],
+ "checkpoint": "typed-decisions",
+ "compute_units": "CPU_AND_NE",
+ "buckets": {
+  "128": "/Users/kartikeypandey/Documents/Jev_Image/ports/coreml/models/typed-decisions/laya_typed-decisions_fp16_L128_options32.mlmodelc"
+ },
+ "questions_per_bucket": {
+  "128": 14
+ },
+ "load_s": 0.29
+}
