@@ -14,11 +14,13 @@ import hashlib
 import json
 import os
 import re
+import time
 
 import requests
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CHAT_URL = os.environ.get("PLANNER_API_URL", "https://openrouter.ai/api/v1/chat/completions")
+FALLBACK_MODEL = "google/gemini-3.1-flash-lite"  # used when the main model is slow, down or returns nothing
 DEFAULT_MODEL = "z-ai/glm-5.3-flash"  # cheap and quick; any OpenRouter chat model works (e.g. google/gemini-3.1-flash-lite)
 MAX_PAINTS = 16
 MAX_SHAPES = 120
@@ -163,7 +165,18 @@ def validate(raw):
     return {"title": title, "paints": paints, "background": background, "shapes": shapes}
 
 
-def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=120):
+def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=40, fallback=FALLBACK_MODEL):
+    """Plan with `model`; if it is slow, failing or returns nothing usable, plan once with `fallback`."""
+    try:
+        return _plan(prompt, model, fresh, timeout)
+    except PlanError as e:
+        if not fallback or fallback == model:
+            raise
+        print(f"planner: {model} failed ({str(e)[:160]}); falling back to {fallback}", flush=True)
+        return _plan(prompt, fallback, fresh, timeout)
+
+
+def _plan(prompt, model, fresh, timeout):
     """The scene for a prompt: from the cache if this prompt and model were planned before."""
     prompt = " ".join(prompt.split())
     digest = hashlib.sha256(json.dumps([prompt, model]).encode()).hexdigest()[:12]
@@ -174,6 +187,8 @@ def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=120):
         scene["usage"] = {"cost": 0.0, "cached": True}
         return scene
 
+    print(f"planner: asking {model} to plan the shapes...", flush=True)
+    t0 = time.time()
     payload = {
         "model": model,
         "messages": [{"role": "system", "content": SYSTEM},
@@ -187,13 +202,18 @@ def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=120):
     }
     raw, cost, errors = None, 0.0, []
     for attempt in range(2):
-        r = requests.post(
-            CHAT_URL,
-            headers={"Authorization": f"Bearer {load_key()}", "Content-Type": "application/json",
-                     "X-OpenRouter-Title": "Jev Studio"},
-            data=json.dumps(payload),
-            timeout=timeout,
-        )
+        try:
+            r = requests.post(
+                CHAT_URL,
+                headers={"Authorization": f"Bearer {load_key()}", "Content-Type": "application/json",
+                         "X-OpenRouter-Title": "Jev Studio"},
+                data=json.dumps(payload),
+                timeout=(10, timeout),
+            )
+        except requests.Timeout:
+            raise PlanError(f"no reply within {timeout}s")
+        except requests.RequestException as e:
+            raise PlanError(f"could not reach the planner: {e}")
         if r.status_code != 200:
             if attempt == 0 and r.status_code == 400:
                 errors.append(f"HTTP 400: {r.text[:200]}")
@@ -230,6 +250,7 @@ def plan(prompt, model=DEFAULT_MODEL, fresh=False, timeout=120):
     with open(path, "w") as f:
         json.dump(scene, f, indent=2)
     scene["usage"] = {"cost": cost}
+    print(f"planner: {model} planned {len(scene['shapes'])} shapes in {time.time() - t0:.1f}s", flush=True)
     return scene
 
 

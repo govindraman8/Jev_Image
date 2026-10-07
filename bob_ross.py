@@ -705,6 +705,8 @@ def main():
                     help="paint anything: a chat model plans --prompt as coloured shapes, then Jev paints them")
     ap.add_argument("--planner-model", default="z-ai/glm-5.3-flash", help="freeform: the OpenRouter model that plans the shapes")
     ap.add_argument("--replan", action="store_true", help="freeform: plan the prompt again instead of using the cached plan")
+    ap.add_argument("--planner-fallback", default="google/gemini-3.1-flash-lite",
+                    help="freeform: model to plan with if --planner-model is slow or fails ('' for none)")
     ap.add_argument("--run-dir", help="write the run here instead of runs/bobross-<method>-<size>-<hash> (used by the Studio)")
     args = ap.parse_args()
     size, blocks = args.size, args.method == "blocks"
@@ -724,17 +726,17 @@ def main():
     if args.freeform:
         from scene_planner import PlanError, plan, to_layers
         try:
-            scene = plan(args.prompt, args.planner_model, fresh=args.replan)
+            scene = plan(args.prompt, args.planner_model, fresh=args.replan, fallback=args.planner_fallback)
         except PlanError as e:
             raise SystemExit(f"planning failed: {e}")
         paints = scene["paints"]
         composition = {
-            "values": {}, "composer": args.planner_model, "prompt": args.prompt, "scene": scene,
+            "values": {}, "composer": scene.get("model", args.planner_model), "prompt": args.prompt, "scene": scene,
             "usage": scene["usage"],
             "decisions": [{"question": f"{len(scene['shapes'])} shapes, {len(paints)} paints",
                            "answer": scene.get("title") or args.prompt, "confidence": 1.0}],
         }
-        print(f"{args.planner_model} planned \"{scene.get('title') or args.prompt}\": {len(scene['shapes'])} shapes, "
+        print(f"{scene.get('model', args.planner_model)} planned \"{scene.get('title') or args.prompt}\": {len(scene['shapes'])} shapes, "
               f"{len(paints)} paints" + (" (cached plan)" if scene["usage"].get("cached") else
                                          f", ${scene['usage']['cost']:.4f}"))
         layers = to_layers(scene)
